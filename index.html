@@ -309,6 +309,50 @@ section { padding-block: 5rem; }
 .cta-band h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; max-width: 32rem; }
 @media (max-width: 560px) { .cta-band { padding: 1.75rem 1.25rem; } }
 
+/* Pricing */
+.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; align-items: stretch; margin-bottom: 1rem; }
+.plan { background: var(--mist); border-radius: 24px; padding: 2rem; display: grid; grid-template-rows: auto auto auto 1fr auto; gap: 1.1rem; min-width: 0; }
+.plan--main { background: var(--paper); box-shadow: inset 0 0 0 2px var(--azure), 0 28px 56px -36px rgba(25, 143, 217, 0.7); }
+.plan h3 { font-size: 1.35rem; font-weight: 500; }
+.plan-price { display: grid; gap: 0.2rem; }
+.plan-price b { font-family: var(--f-display); font-weight: 700; font-size: clamp(2.1rem, 3.6vw, 2.9rem); line-height: 1; letter-spacing: -0.035em; color: var(--ink); }
+.plan-price b small { font-size: 0.45em; font-weight: 500; letter-spacing: 0; color: var(--ink-2); margin-left: 0.3rem; }
+.plan-price span { font-size: 0.92rem; color: var(--ink-2); }
+.plan > p { color: var(--ink-2); }
+.plan ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.55rem; align-content: start; }
+.plan li { display: flex; gap: 0.6rem; font-size: 0.98rem; }
+.plan li::before { content: "→"; color: var(--dot); font-weight: 500; flex: none; }
+.plan-foot { display: grid; gap: 0.75rem; }
+.plan-foot .btn { justify-content: center; }
+.plan-note { font-size: 0.85rem; color: var(--ink-2); }
+@media (max-width: 960px) { .plans { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { .plan { padding: 1.5rem; } }
+
+.price-teaser { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
+.price-teaser .section-head { margin-bottom: 0; }
+.price-box { background: linear-gradient(140deg, var(--azure-wash), var(--indigo-wash)); border-radius: 24px; padding: 2rem; display: grid; gap: 1rem; justify-items: start; min-width: min(100%, 22rem); }
+.price-box .plan-price b { font-size: clamp(2.4rem, 4.6vw, 3.4rem); }
+
+/* FAQ */
+.faq { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 3rem; padding-block: 4rem; border-top: 1px solid var(--line); margin-top: 3rem; }
+.faq .section-head { align-content: start; margin-bottom: 0; }
+.faq-list { border-top: 1px solid var(--line); min-width: 0; }
+.faq-list details { border-bottom: 1px solid var(--line); }
+.faq-list summary {
+  list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 1.3rem 0; font-family: var(--f-display); font-weight: 500; font-size: 1.15rem; line-height: 1.3;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after {
+  content: "+"; flex: none; display: grid; place-content: center; width: 36px; height: 36px; border-radius: 50%;
+  background: var(--mist); color: var(--indigo); font-size: 1.4rem; font-weight: 400; transition: transform 0.25s ease, background 0.2s ease;
+}
+.faq-list summary:hover::after { background: var(--indigo-wash); }
+.faq-list details[open] summary::after { transform: rotate(45deg); background: var(--indigo-wash); }
+.faq-list details p { color: var(--ink-2); padding-bottom: 1.4rem; max-width: 42rem; }
+@media (max-width: 900px) { .faq { grid-template-columns: minmax(0, 1fr); gap: 2rem; padding-block: 3rem; } }
+@media (prefers-reduced-motion: reduce) { .faq-list summary::after { transition: none; } }
+
 /* References */
 .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
 .filters button { font: inherit; font-size: 0.92rem; border: 0; cursor: pointer; border-radius: 999px; padding: 0.5rem 1.05rem; background: var(--mist); color: var(--ink); }
@@ -521,7 +565,7 @@ html, body { overflow-x: clip; }
 /* Scroll reveal: purely position-driven, so everything stays visible where it is unsupported */
 @keyframes reveal { from { opacity: 0.25; transform: translateY(32px) scale(0.98); } to { opacity: 1; transform: none; } }
 @supports (animation-timeline: view()) {
-  .service, .steps li, .ref, .card, .section-head, .cta-band, .about-split, .pillar, .detail-intro, .legal section, .teaser {
+  .service, .steps li, .ref, .card, .section-head, .cta-band, .about-split, .pillar, .detail-intro, .legal section, .teaser, .plan, .price-box, .faq-list {
     animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 35%;
   }
 }
@@ -614,6 +658,7 @@ html, body { overflow-x: clip; }
       <a href="#sluzby">Služby</a>
       <a href="#o-nas">O nás</a>
       <a href="#reference">Reference</a>
+      <a href="#cenik">Ceník</a>
       <a href="#kontakt">Kontakt</a>
       <a class="btn btn--primary" href="#kontakt">Chci audit zdarma</a>
     </div>
@@ -854,6 +899,24 @@ html, body { overflow-x: clip; }
       </article>
     </div>
     <a class="more" href="#reference">Všechny reference →</a>
+  </div>
+</section>
+
+<section id="cenik-prehled">
+  <div class="wrap price-teaser">
+    <div class="section-head">
+      <p class="label">Ceník</p>
+      <h2>Víte předem, kolik zaplatíte</h2>
+      <p>Platíte za práci seniorních specialistů, ne za další lidi mezi vámi a kampaní. Přesnou cenu vám řekneme po auditu zdarma.</p>
+      <a class="more" href="#caste-otazky" style="margin-top: 0.5rem">Časté otázky →</a>
+    </div>
+    <div class="price-box">
+      <span class="label">Správa kampaní</span>
+      <div class="plan-price"><b>od 15 000 Kč<small>/ měsíc</small></b></div>
+      <a class="btn btn--primary" href="#cenik">Zobrazit ceník
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1273,6 +1336,117 @@ html, body { overflow-x: clip; }
   </div>
 </div>
 
+<!-- ============ CENÍK ============ -->
+<div class="view" data-view="cenik" hidden>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="label">Ceník</p>
+      <h1>Kolik stojí marketing, který se dá spočítat</h1>
+      <p class="lead">Platíte za práci seniorních specialistů, ne za další lidi mezi vámi a kampaní. Přesnou cenu vám řekneme po auditu zdarma, takže víte předem, do čeho jdete.</p>
+    </header>
+
+    <div class="plans">
+      <article class="plan plan--main s-ads">
+        <p class="label tag">Výkonnostní marketing</p>
+        <h3>Správa kampaní</h3>
+        <div class="plan-price"><b>od 15 000 Kč<small>/ měsíc</small></b><span>Kampaně řízené podle objednávek a poptávek, ne podle prokliků.</span></div>
+        <ul>
+          <li>Google Ads, Sklik, Meta a LinkedIn</li>
+          <li>Analýza, strategie a tvorba reklam</li>
+          <li>Měření konverzí v GA4</li>
+          <li>Průběžná optimalizace rozpočtu</li>
+          <li>Srozumitelný měsíční report</li>
+          <li>Přímý kontakt se seniorním specialistou</li>
+        </ul>
+        <div class="plan-foot">
+          <a class="btn btn--primary" href="#kontakt">Chci audit zdarma</a>
+          <p class="plan-note">Cena nezahrnuje rozpočet na reklamu. Ten platíte přímo Googlu, Seznamu a Meta.</p>
+        </div>
+      </article>
+
+      <article class="plan s-mail">
+        <p class="label tag">E-mail marketing</p>
+        <h3>Automatizace a newslettery</h3>
+        <div class="plan-price"><b>na míru</b><span>Podle rozsahu, cenu znáte po úvodním auditu.</span></div>
+        <ul>
+          <li>Automatizace, které prodávají samy</li>
+          <li>Pravidelné newslettery</li>
+          <li>Segmentace databáze</li>
+          <li>Testování a měření</li>
+        </ul>
+        <div class="plan-foot">
+          <a class="btn btn--ghost" href="#kontakt">Nezávazně poptat</a>
+        </div>
+      </article>
+
+      <article class="plan s-web">
+        <p class="label tag">Weby a aplikace</p>
+        <h3>Weby, e-shopy a aplikace</h3>
+        <div class="plan-price"><b>od 25 000 Kč</b><span>Aplikace na míru, hotová do 14 dnů od zadání.</span></div>
+        <ul>
+          <li>Weby a e-shopy postavené na výkon</li>
+          <li>Aplikace na míru</li>
+          <li>Měření od prvního dne</li>
+          <li>Předání, zaškolení a další rozvoj</li>
+        </ul>
+        <div class="plan-foot">
+          <a class="btn btn--ghost" href="#kontakt">Nezávazně poptat</a>
+          <p class="plan-note">Weby a e-shopy naceníme po úvodní schůzce, s termíny a milníky.</p>
+        </div>
+      </article>
+    </div>
+
+    <section class="faq" id="caste-otazky">
+      <div class="section-head">
+        <p class="label">Časté otázky</p>
+        <h2>Na co se nás klienti ptají nejčastěji</h2>
+        <p>Nenašli jste odpověď? Napište nám nebo zavolejte na <a href="tel:+420603765797" style="white-space: nowrap">+420 603 765 797</a>.</p>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Kolik stojí správa kampaní?</summary>
+          <p>Správa výkonnostních kampaní začíná na 15 000 Kč měsíčně. Konečná cena záleží na počtu kanálů a rozsahu práce. Přesnou částku vám řekneme po auditu zdarma, ještě než začneme.</p>
+        </details>
+        <details>
+          <summary>Je v ceně i rozpočet na reklamu?</summary>
+          <p>Ne. Rozpočet na reklamu platíte přímo Googlu, Seznamu nebo Meta, takže máte přehled o každé koruně, která jde do kampaní. Naše cena pokrývá práci specialistů.</p>
+        </details>
+        <details>
+          <summary>Jaký rozpočet na reklamu potřebuji?</summary>
+          <p>Záleží na oboru, konkurenci a cílech. Konkrétní doporučení dostanete v rámci auditu zdarma.</p>
+        </details>
+        <details>
+          <summary>Co obsahuje audit zdarma?</summary>
+          <p>Projdeme vaše kampaně, web a e-maily a ukážeme, kde vám utíkají poptávky. Výsledky probereme na 20minutovém online hovoru. Audit je nezávazný.</p>
+        </details>
+        <details>
+          <summary>S kým budu komunikovat?</summary>
+          <p>Přímo se seniorním specialistou, který vaše kampaně dělá. Žádný account manager uprostřed, takže se informace cestou neztrácejí a na změny reagujeme hned.</p>
+        </details>
+        <details>
+          <summary>Jak poznám, že kampaně fungují?</summary>
+          <p>Na začátku si domluvíme čísla, podle kterých budeme úspěch měřit. Konverze měříme v GA4 a každý měsíc dostanete srozumitelný report s návrhem, co zlepšit dál.</p>
+        </details>
+        <details>
+          <summary>Kolik stojí web nebo aplikace?</summary>
+          <p>Aplikace na míru začínají na 25 000 Kč a hotové jsou do 14 dnů od zadání. Weby a e-shopy naceníme po úvodní schůzce podle rozsahu, cenu i harmonogram znáte předem.</p>
+        </details>
+        <details>
+          <summary>Můžu využít jen jednu službu?</summary>
+          <p>Ano, každou službu můžete využít samostatně. Nejvíc ale přinesou, když na sebe navazují.</p>
+        </details>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <h2>Chcete vědět, kolik by to stálo u vás? Začněte auditem zdarma.</h2>
+      <a class="btn btn--primary" href="#kontakt">Chci audit zdarma
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- ============ OCHRANA OSOBNÍCH ÚDAJŮ ============ -->
 <div class="view" data-view="ochrana-udaju" hidden>
   <div class="wrap">
@@ -1356,6 +1530,8 @@ html, body { overflow-x: clip; }
       <span class="label">Agentura</span>
       <a href="#o-nas">O nás</a>
       <a href="#reference">Reference</a>
+      <a href="#cenik">Ceník</a>
+      <a href="#caste-otazky">Časté otázky</a>
       <a href="#kontakt">Kontakt</a>
       <a href="https://www.linkedin.com/company/advenue/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://www.facebook.com/advenueagency" target="_blank" rel="noopener">Facebook</a>
