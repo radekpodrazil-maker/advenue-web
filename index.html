@@ -31,7 +31,7 @@
   --f-body: "Roboto", "Helvetica Neue", Arial, system-ui, sans-serif;
   --f-mono: "Roboto Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
-  --wrap: 1160px;
+  --wrap: 1600px;
   color-scheme: light;
 }
 
@@ -50,25 +50,13 @@ body {
 a { color: var(--azure-ink); }
 :focus-visible { outline: 3px solid var(--azure); outline-offset: 3px; border-radius: 6px; }
 
-.wrap {
-  max-width: var(--wrap);
-  margin-inline: auto;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-}
-@media (min-width: 700px) {
-  .wrap {
-    padding-left: max(32px, env(safe-area-inset-left, 0px));
-    padding-right: max(32px, env(safe-area-inset-right, 0px));
-  }
-}
-
-/* Full-width rows (top menu, hero) keep only a side gutter, no max width */
-.wrap--wide, .hero--photo {
+/* One side gutter for every row, so sections line up with the full-width menu and hero */
+.wrap, .hero--photo {
   --edge: clamp(16px, 4vw, 56px);
   padding-left: max(var(--edge), env(safe-area-inset-left, 0px));
   padding-right: max(var(--edge), env(safe-area-inset-right, 0px));
 }
+.wrap { max-width: var(--wrap); margin-inline: auto; }
 .wrap--wide { max-width: none; }
 
 h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
