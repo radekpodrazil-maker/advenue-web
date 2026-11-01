@@ -638,6 +638,30 @@ html, body { overflow-x: clip; }
   background: linear-gradient(90deg, rgba(8, 21, 48, 0.97) 0%, rgba(8, 21, 48, 0.88) 34%, rgba(8, 21, 48, 0.25) 68%, rgba(8, 21, 48, 0) 100%);
 }
 .hero--photo .hero-copy { max-width: 38rem; }
+/* Light pulses running up the curves of the hero image. The SVG crops like the
+   background (cover), and sits under the darkening gradient so text stays calm. */
+.hero-flow { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; pointer-events: none; mix-blend-mode: screen; }
+.hero-flow .pulse {
+  fill: none; stroke: #c9f1ff; stroke-width: 4.5; stroke-linecap: round;
+  stroke-dasharray: 70 1100; stroke-dashoffset: 70; opacity: 0;
+  animation: pulse-run var(--d) linear var(--delay) infinite;
+}
+.hero-flow .pulse--violet { stroke: #cdd3ff; }
+.hero-flow .pulse-end { fill: #eafaff; opacity: 0; transform-box: fill-box; transform-origin: center; animation: pulse-pop var(--d) ease-out var(--delay) infinite; }
+@keyframes pulse-run {
+  0% { stroke-dashoffset: 70; opacity: 0; }
+  6% { opacity: 1; }
+  70% { stroke-dashoffset: -1000; opacity: 1; }
+  71%, 100% { stroke-dashoffset: -1000; opacity: 0; }
+}
+/* The head reaches the end of the line at ~65 % of the cycle; the dot flashes then */
+@keyframes pulse-pop {
+  0%, 61% { opacity: 0; transform: scale(0.4); }
+  66% { opacity: 0.95; transform: scale(1); }
+  88%, 100% { opacity: 0; transform: scale(2); }
+}
+.hero-flow.is-paused .pulse, .hero-flow.is-paused .pulse-end { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .hero-flow { display: none; } }
 .hero--photo .label { color: #9fb2dc; }
 .hero--photo h1 { color: #ffffff; }
 .hero--photo h1 em { background-image: linear-gradient(100deg, #3fb0f2 10%, #8ea2ff 90%); }
@@ -647,7 +671,7 @@ html, body { overflow-x: clip; }
 .hero--photo .btn--ghost { color: #ffffff; box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.45); }
 .hero--photo .btn--ghost:hover { box-shadow: inset 0 0 0 1.5px #ffffff; }
 @media (max-width: 760px) {
-  .hero--photo { min-height: 0; background-position: 72% center; }
+  .hero--photo { min-height: 0; background-position: 100% center; }
   .hero--photo::before { background: linear-gradient(180deg, rgba(8, 21, 48, 0.72) 0%, rgba(8, 21, 48, 0.9) 100%); }
 }
 
@@ -833,6 +857,23 @@ html, body { overflow-x: clip; }
 <main>
 <div class="view" data-view="domu">
   <header class="hero hero--photo">
+    <svg class="hero-flow" id="hero-flow" viewBox="0 0 1200 896" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <defs><filter id="flow-glow" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <g filter="url(#flow-glow)">
+      <path class="pulse" pathLength="1000" style="--d:4.6s;--delay:-0.4s" d="M130 732 C142 731 172 729 200 726 C228 723 267 720 300 716 C333 712 367 709 400 705 C433 701 475 695 500 690 C525 685 533 680 550 673 C567 666 583 658 600 650 C617 642 633 634 650 624 C667 614 683 604 700 593 C717 582 733 569 750 555 C767 541 783 527 800 511 C817 495 833 478 850 459 C867 440 883 422 900 400 C917 378 933 355 950 330 C967 305 982 282 1000 249 C1018 216 1048 152 1058 133"/>
+      <circle class="pulse-end" cx="1058" cy="133" r="9" style="--d:4.6s;--delay:-0.4s"/>
+      <path class="pulse pulse--violet" pathLength="1000" style="--d:5.2s;--delay:-2.6s" d="M200 752 C217 751 267 747 300 744 C333 741 367 738 400 733 C433 728 467 722 500 714 C533 706 575 694 600 686 C625 678 633 673 650 665 C667 657 683 649 700 640 C717 631 733 622 750 612 C767 602 783 593 800 578 C817 563 833 541 850 523 C867 505 883 490 900 472 C917 454 933 434 950 412 C967 390 983 366 1000 341 C1017 316 1035 286 1050 259 C1065 232 1085 195 1092 182"/>
+      <circle class="pulse-end" cx="1092" cy="182" r="9" style="--d:5.2s;--delay:-2.6s"/>
+      <path class="pulse" pathLength="1000" style="--d:4s;--delay:-1.4s" d="M200 722 C217 720 267 715 300 710 C333 705 367 700 400 692 C433 684 475 669 500 660 C525 651 533 646 550 639 C567 632 583 628 600 619 C617 610 633 599 650 586 C667 573 683 558 700 542 C717 526 733 509 750 488 C767 467 784 443 800 417 C816 391 838 347 845 333"/>
+      <circle class="pulse-end" cx="845" cy="333" r="9" style="--d:4s;--delay:-1.4s"/>
+      <path class="pulse" pathLength="1000" style="--d:3.6s;--delay:-3s" d="M250 716 C267 713 325 704 350 698 C375 692 383 688 400 682 C417 676 433 670 450 664 C467 658 483 651 500 643 C517 635 533 626 550 617 C567 608 583 598 600 587 C617 576 633 563 650 549 C667 535 684 519 700 501 C716 483 740 450 748 440"/>
+      <circle class="pulse-end" cx="748" cy="440" r="9" style="--d:3.6s;--delay:-3s"/>
+      <path class="pulse pulse--violet" pathLength="1000" style="--d:4.8s;--delay:-3.8s" d="M650 668 C658 665 683 655 700 648 C717 641 733 633 750 625 C767 617 783 608 800 598 C817 588 833 577 850 565 C867 553 883 540 900 525 C917 510 933 493 950 475 C967 457 982 440 1000 415 C1018 390 1050 340 1060 325"/>
+      <circle class="pulse-end" cx="1060" cy="325" r="9" style="--d:4.8s;--delay:-3.8s"/>
+      <path class="pulse" pathLength="1000" style="--d:3.4s;--delay:-0.9s" d="M200 697 C217 694 275 682 300 676 C325 670 333 668 350 663 C367 658 383 652 400 645 C417 638 434 630 450 621 C466 612 486 597 493 592"/>
+      <circle class="pulse-end" cx="493" cy="592" r="9" style="--d:3.4s;--delay:-0.9s"/>
+      </g>
+    </svg>
     <div class="hero-copy">
       <h1>Marketing, který se dá <em>spočítat.</em></h1>
       <p class="lead">Spravujeme výkonnostní kampaně, posíláme e-maily, které lidé otevírají, a stavíme weby a aplikace, které prodávají.</p>
@@ -2341,6 +2382,21 @@ html, body { overflow-x: clip; }
   window.addEventListener("popstate", function () { route(location.hash.slice(1)); });
   window.addEventListener("hashchange", function () { route(location.hash.slice(1)); });
   route(location.hash.slice(1));
+
+  // Hero light pulses: crop the overlay the same way as the background image
+  // (centred on desktop, right-aligned on phones) and pause it off screen.
+  var flow = document.getElementById("hero-flow");
+  if (flow) {
+    var narrow = window.matchMedia("(max-width: 760px)");
+    var fitFlow = function () { flow.setAttribute("preserveAspectRatio", (narrow.matches ? "xMaxYMid" : "xMidYMid") + " slice"); };
+    fitFlow();
+    if (narrow.addEventListener) narrow.addEventListener("change", fitFlow); else if (narrow.addListener) narrow.addListener(fitFlow);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        flow.classList.toggle("is-paused", !entries[0].isIntersecting);
+      }).observe(flow);
+    }
+  }
 
   // Contact form: validate, send the lead to the Make.com webhook, and fall back
   // to the visitor's own e-mail when no webhook is set or sending fails.
