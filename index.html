@@ -406,6 +406,107 @@ a.guide-card:hover { transform: translateY(-4px); box-shadow: 0 22px 40px -28px 
 .need h2, .guide-cta h2 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; }
 .guide-cta { background: var(--ink); color: var(--paper); border-radius: 24px; padding: 1.75rem; display: grid; gap: 1rem; justify-items: start; }
 .guide-cta p { color: #c8d2ea; }
+/* Guides: illustrated UI screens (simplified, brand-neutral mock windows) */
+.ui-fig { margin: 0.5rem 0 0; display: grid; gap: 0.6rem; min-width: 0; }
+.ui-fig figcaption { font-size: 0.85rem; color: var(--ink-2); }
+.ui {
+  --hl: #f59e0b;
+  background: #ffffff; border-radius: 16px; overflow: hidden; min-width: 0;
+  box-shadow: 0 0 0 1px var(--line), 0 24px 48px -32px rgba(20, 22, 23, 0.45);
+  font-family: var(--f-body); font-size: clamp(11px, 2.9vw, 13px); line-height: 1.35; color: var(--ink);
+}
+.ui i, .ui em, .ui b { font-style: normal; }
+.ui-bar { display: flex; align-items: center; gap: 0.4em; padding: 0.6em 0.9em; background: var(--mist); border-bottom: 1px solid var(--line); font-weight: 500; white-space: nowrap; overflow: hidden; }
+.ui-bar::before { content: ""; flex: none; width: 0.6em; height: 0.6em; border-radius: 50%; background: #f1a99b; box-shadow: 1em 0 0 #f3d38b, 2em 0 0 #a8d8b2; margin-right: 2.6em; }
+.ui-bar span { color: var(--ink-2); font-weight: 400; }
+.ui-body { display: grid; grid-template-columns: minmax(0, 1fr); }
+.ui-body--side { grid-template-columns: 9em minmax(0, 1fr); }
+.ui-side { background: #fafbfc; border-right: 1px solid var(--line); padding: 0.9em 0.5em; display: grid; gap: 0.2em; align-content: start; }
+.ui-side i { padding: 0.45em 0.7em; border-radius: 8px; color: var(--ink-2); position: relative; }
+.ui-side i.on { background: var(--wash); color: var(--ink); font-weight: 500; }
+.ui-side i.sub { padding-left: 1.6em; }
+.ui-main { padding: 1.2em; display: grid; gap: 0.85em; align-content: start; min-width: 0; }
+.ui-h { font-weight: 600; font-size: 1.12em; }
+.ui-muted { color: var(--ink-2); font-size: 0.92em; }
+.ui-field { display: grid; gap: 0.3em; min-width: 0; }
+.ui-field > span { color: var(--ink-2); font-size: 0.9em; }
+.ui-field > b { font-weight: 400; border: 1px solid #cfd4da; border-radius: 8px; padding: 0.5em 0.7em; display: flex; justify-content: space-between; gap: 0.5em; min-width: 0; position: relative; }
+.ui-field > b.sel::after { content: "▾"; color: var(--ink-2); }
+.ui-grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85em; min-width: 0; }
+.ui-btns { display: flex; flex-wrap: wrap; gap: 0.5em; }
+.ui-btn { display: inline-flex; align-items: center; padding: 0.5em 1em; border-radius: 999px; background: var(--indigo); color: #ffffff; font-weight: 500; position: relative; }
+.ui-btn--ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px #cfd4da; }
+.ui-menu { display: grid; width: max-content; min-width: 11em; border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 12px 24px -14px rgba(20, 22, 23, 0.35); padding: 0.3em; }
+.ui-menu i { padding: 0.45em 0.8em; border-radius: 6px; position: relative; }
+.ui-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.55em; }
+.ui-tile { border: 1px solid #d9dde2; border-radius: 10px; padding: 0.75em; display: grid; gap: 0.3em; align-content: start; position: relative; min-width: 0; }
+.ui-tile::before { content: ""; width: 1.4em; height: 1.4em; border-radius: 6px; background: var(--wash); }
+.ui-tile small { color: var(--ink-2); font-size: 0.85em; }
+.ui-tile.on { border-color: var(--indigo); box-shadow: inset 0 0 0 1px var(--indigo); }
+.ui-tile.on::before { background: var(--indigo); }
+.ui-toggle { display: flex; justify-content: space-between; align-items: center; gap: 1em; position: relative; }
+.ui-toggle > i { flex: none; width: 2.4em; height: 1.35em; border-radius: 999px; background: #cfd4da; position: relative; }
+.ui-toggle > i::after { content: ""; position: absolute; top: 0.15em; left: 0.15em; width: 1.05em; height: 1.05em; border-radius: 50%; background: #ffffff; }
+.ui-toggle > i.on { background: var(--leaf); }
+.ui-toggle > i.on::after { left: 1.2em; }
+.ui-radio { display: flex; align-items: center; gap: 0.55em; position: relative; }
+.ui-radio > i { flex: none; width: 1em; height: 1em; border-radius: 50%; border: 1.5px solid #9aa3ad; }
+.ui-radio > i.on { border: 0.32em solid var(--indigo); }
+.ui-table { display: grid; border: 1px solid var(--line); border-radius: 10px; min-width: 0; }
+.ui-tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.8em; padding: 0.55em 0.8em; border-top: 1px solid var(--line); align-items: center; position: relative; }
+.ui-tr:first-child { border-top: 0; background: #fafbfc; color: var(--ink-2); font-size: 0.9em; border-radius: 10px 10px 0 0; }
+.ui-tr--3 { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) auto; }
+.ui-ok { color: #2e8b57; font-weight: 600; }
+.ui-star { color: #9aa3ad; }
+.ui-star.on { color: var(--hl); }
+.ui-chip { display: inline-flex; padding: 0.25em 0.7em; border-radius: 999px; background: var(--wash); font-size: 0.92em; }
+.ui-code { margin: 0; background: #0f1a2e; color: #d6def0; font-family: var(--f-mono); font-size: 0.9em; line-height: 1.6; padding: 1em 1.1em; border-radius: 10px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.ui-code .c { color: #7f8db0; }
+.ui-code mark { background: rgba(245, 158, 11, 0.22); color: #ffd27a; border-radius: 4px; box-shadow: 0 0 0 1.5px var(--hl); padding: 0 0.15em; }
+.ui-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr); gap: 1.2em; align-items: start; }
+.ui-ad { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: grid; }
+.ui-ad-top { display: flex; align-items: center; gap: 0.5em; padding: 0.6em 0.7em; font-weight: 600; }
+.ui-ad-top::before { content: ""; width: 1.7em; height: 1.7em; border-radius: 50%; background: linear-gradient(140deg, var(--azure), var(--indigo)); flex: none; }
+.ui-ad-top small { display: block; font-weight: 400; color: var(--ink-2); font-size: 0.8em; }
+.ui-ad-text { padding: 0 0.7em 0.6em; font-size: 0.92em; }
+.ui-ad-img { aspect-ratio: 4 / 5; max-height: 14em; background: radial-gradient(circle at 70% 30%, rgba(63, 176, 242, 0.75), transparent 55%), linear-gradient(150deg, #0d2350, #3e5fc4); display: grid; place-content: center; color: #ffffff; font-family: var(--f-display); font-weight: 700; font-size: 1.15em; text-align: center; padding: 1em; }
+.ui-ad-foot { display: flex; justify-content: space-between; align-items: center; gap: 0.6em; padding: 0.6em 0.7em; background: #fafbfc; }
+.ui-ad-foot small { display: block; color: var(--ink-2); font-size: 0.8em; }
+.ui-ad-foot .ui-btn--ghost { background: var(--mist); box-shadow: none; padding: 0.4em 0.8em; white-space: nowrap; }
+.ui-mail { display: grid; grid-template-columns: 2.4em minmax(0, 1fr) auto; gap: 0.2em 0.75em; padding: 0.85em 1em; border-top: 1px solid var(--line); align-items: start; }
+.ui-mail:first-child { border-top: 0; }
+.ui-mail > i { grid-row: span 3; width: 2.4em; height: 2.4em; border-radius: 50%; background: var(--leaf-wash); display: grid; place-content: center; color: var(--leaf-ink); font-weight: 700; }
+.ui-mail > b { font-weight: 700; position: relative; justify-self: start; }
+.ui-mail > small { color: var(--ink-2); font-size: 0.85em; }
+.ui-mail > span { grid-column: 2 / -1; position: relative; justify-self: start; max-width: 100%; }
+.ui-mail > span.pre { color: var(--ink-2); }
+.ui-mail--dim > span.pre { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ui-mail--dim { opacity: 0.45; }
+.ui-ab { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7em; }
+.ui-ab > div { border: 1px solid #d9dde2; border-radius: 10px; padding: 0.85em; display: grid; gap: 0.45em; position: relative; }
+.ui-ab > div.win { border-color: var(--leaf); box-shadow: inset 0 0 0 1px var(--leaf); }
+.ui-ab b { font-family: var(--f-display); font-weight: 700; font-size: 1.5em; }
+.ui-tag { justify-self: start; font-size: 0.8em; font-weight: 600; padding: 0.15em 0.6em; border-radius: 999px; background: var(--leaf-wash); color: var(--leaf-ink); }
+/* What to click: amber ring plus a numbered pin */
+.hl { position: relative; outline: 2px solid var(--hl); outline-offset: 3px; border-radius: 8px; }
+.ui-mail > .hl, .ui-tr.hl { border-radius: 4px; }
+.pin {
+  position: absolute; top: -0.85em; right: -0.85em; z-index: 1; width: 1.6em; height: 1.6em; border-radius: 50%;
+  display: grid; place-content: center; background: var(--hl); color: #ffffff; font-size: 0.82em; font-weight: 700; line-height: 1;
+  box-shadow: 0 0 0 2.5px #ffffff;
+}
+@keyframes hl-pulse { 0%, 100% { outline-color: var(--hl); } 50% { outline-color: rgba(245, 158, 11, 0.35); } }
+@media (prefers-reduced-motion: no-preference) { .ui .hl { animation: hl-pulse 2.4s ease-in-out infinite; } }
+@media (max-width: 640px) {
+  .ui-split { grid-template-columns: minmax(0, 1fr); }
+  .ui-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .guide-steps .ui-fig { margin-left: -3.1rem; }
+  .ui-body--side { grid-template-columns: 7.2em minmax(0, 1fr); }
+  .ui-grid2, .ui-ab { grid-template-columns: minmax(0, 1fr); }
+}
+
 @media (max-width: 1020px) {
   .guide { grid-template-columns: minmax(0, 1fr); }
   .guide-side { position: static; padding-top: 0; }
@@ -1575,7 +1676,9 @@ html, body { overflow-x: clip; }
           <li>
             <h2>Založte účet a službu</h2>
             <p>Přihlaste se na <b>analytics.google.com</b> firemním Google účtem. V části <b>Administrátor</b> klikněte na <b>Vytvořit → Účet</b>. Účet pojmenujte podle firmy, službu (property) podle webu.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Analytics <span>· Administrátor</span></div><div class="ui-body ui-body--side"><div class="ui-side"><i>Domů</i><i>Přehledy</i><i>Prozkoumat</i><i>Inzerce</i><i class="on hl">Administrátor<em class="pin">1</em></i></div><div class="ui-main"><div class="ui-btns"><span class="ui-btn hl">+ Vytvořit<em class="pin">2</em></span></div><div class="ui-menu"><i class="hl">Účet<em class="pin">3</em></i><i>Služba</i></div><div class="ui-muted">Nastavení účtu · Nastavení služby · Shromažďování dat</div></div></div></div><figcaption>Administrátor → Vytvořit → Účet. Službu (web) pak vytvoříte v dalším kroku průvodce.</figcaption></figure>
             <p>U služby nastavte <b>časové pásmo Česko</b> a <b>měnu CZK</b>. Špatná měna později zkreslí všechny tržby.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Analytics <span>· Vytvořit službu</span></div><div class="ui-main"><div class="ui-h">Podrobnosti o službě</div><div class="ui-field"><span>Název služby</span><b>Web – vasefirma.cz</b></div><div class="ui-grid2"><div class="ui-field"><span>Časové pásmo pro přehledy</span><b class="sel hl">(GMT+01:00) Česko<em class="pin">1</em></b></div><div class="ui-field"><span>Měna</span><b class="sel hl">Česká koruna (CZK)<em class="pin">2</em></b></div></div><div class="ui-btns"><span class="ui-btn">Další</span></div></div></div><figcaption>Časové pásmo Česko a měna CZK. Obojí nastavte hned, změna později nepřepočítá stará data.</figcaption></figure>
           </li>
           <li>
             <h2>Vyplňte údaje o firmě a cíle</h2>
@@ -1585,6 +1688,7 @@ html, body { overflow-x: clip; }
             <h2>Vytvořte webový datový stream</h2>
             <p>Zvolte <b>Web</b>, zadejte adresu webu a název streamu. Dostanete <b>ID měření</b> ve tvaru <code>G-XXXXXXXXXX</code>.</p>
             <p>Nechte zapnuté <b>Vylepšené měření</b>. Automaticky sbírá zobrazení stránek, scrollování, odchozí kliknutí, vyhledávání na webu a stahování souborů.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Analytics <span>· Datové streamy</span></div><div class="ui-main"><div class="ui-tiles"><div class="ui-tile on hl"><b>Web</b><small>vasefirma.cz</small><em class="pin">1</em></div><div class="ui-tile"><b>Android</b><small>aplikace</small></div><div class="ui-tile"><b>iOS</b><small>aplikace</small></div></div><div class="ui-table"><div class="ui-tr"><span>Podrobnosti streamu</span><span></span></div><div class="ui-tr"><span>ID měření</span><b class="hl">G-AB12CD34EF<em class="pin">2</em></b></div><div class="ui-tr"><span>Vylepšené měření</span><span class="ui-toggle"><i class="on"></i></span></div></div></div></div><figcaption>Webový stream: ID měření (G-…) budete potřebovat při vkládání kódu. Vylepšené měření nechte zapnuté.</figcaption></figure>
           </li>
           <li>
             <h2>Vložte měřicí kód na web</h2>
@@ -1606,10 +1710,12 @@ html, body { overflow-x: clip; }
           <li>
             <h2>Nastavte klíčové události</h2>
             <p>Klíčové události (dříve konverze) jsou akce, které pro vás mají hodnotu: odeslaný formulář, nákup, klik na telefon. V <b>Administrátor → Události</b> je označte jako klíčové. Teprve pak uvidíte, které kanály přinášejí obchod.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Analytics <span>· Administrátor → Události</span></div><div class="ui-main"><div class="ui-table"><div class="ui-tr ui-tr--3"><span>Název události</span><span>Počet</span><span>Klíčová</span></div><div class="ui-tr ui-tr--3"><span>page_view</span><span>12 480</span><span class="ui-star">☆</span></div><div class="ui-tr ui-tr--3"><span>scroll</span><span>6 215</span><span class="ui-star">☆</span></div><div class="ui-tr ui-tr--3 hl"><span>form_submit</span><span>86</span><span class="ui-star on">★</span><em class="pin">1</em></div><div class="ui-tr ui-tr--3"><span>click_telefon</span><span>41</span><span class="ui-star on">★</span></div></div></div></div><figcaption>Hvězdičkou označíte událost jako klíčovou. Čísla jsou jen ukázka.</figcaption></figure>
           </li>
           <li>
             <h2>Prodlužte uchovávání dat a propojte služby</h2>
             <p>V <b>Administrátor → Uchovávání dat</b> přepněte z výchozích 2 měsíců na <b>14 měsíců</b>. Jinak nebudete moct porovnávat delší období.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Analytics <span>· Uchovávání dat</span></div><div class="ui-main"><div class="ui-field"><span>Uchovávání dat událostí</span><b class="sel hl">14 měsíců<em class="pin">1</em></b></div><div class="ui-muted">Výchozí hodnota jsou 2 měsíce.</div><div class="ui-btns"><span class="ui-btn">Uložit</span></div></div></div><figcaption>Uchovávání dat přepněte na 14 měsíců a uložte.</figcaption></figure>
             <p>Nakonec propojte GA4 s <b>Google Ads</b> a <b>Search Console</b> v části <b>Propojení služeb</b>.</p>
           </li>
         </ol>
@@ -1626,7 +1732,7 @@ html, body { overflow-x: clip; }
             <li>Uchovávání dat zůstalo na 2 měsících.</li>
           </ul>
         </section>
-        <p class="guide-note">Google rozhraní občas upravuje, názvy tlačítek se proto můžou mírně lišit.</p>
+        <p class="guide-note">Google rozhraní občas upravuje, obrázky jsou proto ilustrační a názvy tlačítek se můžou mírně lišit.</p>
       </div>
       <aside class="guide-side">
         <div class="need">
@@ -1678,15 +1784,18 @@ html, body { overflow-x: clip; }
               <li><b>Služby a B2B:</b> Potenciální zákazníci</li>
             </ul>
             <p>Cíl Návštěvnost přivede levné prokliky, ale málokdy zákazníky. Meta pak hledá lidi, kteří rádi klikají, ne ty, kteří nakupují.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Správce reklam <span>· Nová kampaň</span></div><div class="ui-main"><div class="ui-h">Vyberte cíl kampaně</div><div class="ui-tiles"><div class="ui-tile"><b>Povědomí</b></div><div class="ui-tile"><b>Návštěvnost</b></div><div class="ui-tile"><b>Interakce</b></div><div class="ui-tile on hl"><b>Potenciální zákazníci</b><small>služby, B2B</small><em class="pin">1</em></div><div class="ui-tile"><b>Propagace aplikace</b></div><div class="ui-tile hl"><b>Prodeje</b><small>e-shop</small><em class="pin">2</em></div></div><div class="ui-btns"><span class="ui-btn ui-btn--ghost">Zrušit</span><span class="ui-btn">Pokračovat</span></div></div></div><figcaption>Šest cílů kampaně. Pro služby zvolte Potenciální zákazníci, pro e-shop Prodeje.</figcaption></figure>
           </li>
           <li>
             <h2>Nastavte rozpočet</h2>
             <p>Začněte denním rozpočtem, který si můžete dovolit nechat běžet aspoň dva týdny. Algoritmus se nejdřív učí. Meta uvádí, že fáze učení potřebuje zhruba 50 konverzí týdně na sadu reklam. S malým rozpočtem proto mějte méně sad reklam, ne víc.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Správce reklam <span>· Rozpočet a plán</span></div><div class="ui-main"><div class="ui-grid2"><div class="ui-field"><span>Rozpočet</span><b class="sel">Denní rozpočet</b></div><div class="ui-field"><span>Částka</span><b class="hl">500 Kč<em class="pin">1</em></b></div></div><div class="ui-field"><span>Začátek</span><b>Dnes</b></div><div class="ui-muted">Během fáze učení kampaň zbytečně neupravujte.</div></div></div><figcaption>Denní rozpočet. Částka je jen příklad, nastavte takovou, kterou necháte běžet aspoň dva týdny.</figcaption></figure>
           </li>
           <li>
             <h2>Zvolte publikum a umístění</h2>
             <p>Nastavte lokalitu (celé Česko, nebo jen region, kde působíte) a případně věk. Pro začátek dává smysl <b>Advantage+ publikum</b>, kdy Meta hledá vhodné lidi sama podle toho, kdo konvertuje.</p>
             <p>U umístění nechte <b>Advantage+ umístění</b>. Reklama se pak zobrazuje tam, kde je nejlevnější výsledek.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Správce reklam <span>· Publikum a umístění</span></div><div class="ui-main"><div class="ui-field"><span>Lokality</span><b><span class="ui-chip">Česko</span></b></div><div class="ui-toggle hl">Advantage+ publikum<i class="on"></i><em class="pin">1</em></div><div class="ui-field"><span>Umístění</span></div><div class="ui-radio hl"><i class="on"></i>Advantage+ umístění (doporučeno)<em class="pin">2</em></div><div class="ui-radio"><i></i>Ruční umístění</div></div></div><figcaption>Lokalita, Advantage+ publikum a Advantage+ umístění. Pro začátek nechte rozhodovat Metu.</figcaption></figure>
           </li>
           <li>
             <h2>Připravte reklamu</h2>
@@ -1697,6 +1806,7 @@ html, body { overflow-x: clip; }
               <li><b>Odkaz s UTM parametry,</b> abyste výsledky viděli i v Google Analytics.</li>
             </ul>
             <p>Připravte aspoň 3 varianty kreativy a nechte Meta zjistit, která funguje.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Správce reklam <span>· Reklama</span></div><div class="ui-main ui-split"><div style="display:grid;gap:0.85em;min-width:0"><div class="ui-field"><span>Hlavní text</span><b>Kolik vás stojí jedna poptávka? Ukážeme vám to zdarma.</b></div><div class="ui-field"><span>Titulek</span><b>Audit kampaní zdarma</b></div><div class="ui-field"><span>Výzva k akci</span><b class="sel hl">Zjistit více<em class="pin">1</em></b></div><div class="ui-field"><span>Webová adresa</span><b class="hl">vasefirma.cz/?utm_source=facebook&amp;utm_medium=cpc<em class="pin">2</em></b></div></div><div class="ui-ad"><div class="ui-ad-top"><span>Vaše firma<small>Sponzorováno</small></span></div><div class="ui-ad-text">Kolik vás stojí jedna poptávka? Ukážeme vám to zdarma.</div><div class="ui-ad-img">Audit zdarma</div><div class="ui-ad-foot"><span><small>VASEFIRMA.CZ</small>Audit kampaní zdarma</span><span class="ui-btn ui-btn--ghost">Zjistit více</span></div></div></div></div><figcaption>Text, titulek, výzva k akci a odkaz s UTM parametry. Vpravo náhled reklamy ve feedu.</figcaption></figure>
           </li>
           <li>
             <h2>Publikujte a nechte kampaň učit se</h2>
@@ -1717,7 +1827,7 @@ html, body { overflow-x: clip; }
             <li>Úpravy kampaně každý den.</li>
           </ul>
         </section>
-        <p class="guide-note">Meta rozhraní často mění, názvy tlačítek se proto můžou mírně lišit.</p>
+        <p class="guide-note">Meta rozhraní často mění, obrázky jsou proto ilustrační a názvy tlačítek se můžou mírně lišit.</p>
       </div>
       <aside class="guide-side">
         <div class="need">
@@ -1764,6 +1874,7 @@ html, body { overflow-x: clip; }
               <li>V Google Ads otevřete <b>Cíle → Konverze → Souhrn</b> a klikněte na <b>Nová konverzní akce</b>.</li>
               <li>Zvolte <b>Import → Google Analytics 4</b> a vyberte klíčové události.</li>
             </ul>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Google Ads <span>· Cíle</span></div><div class="ui-body ui-body--side"><div class="ui-side"><i>Kampaně</i><i class="on hl">Cíle<em class="pin">1</em></i><i class="sub">Konverze</i><i class="sub on">Souhrn</i><i>Nástroje</i></div><div class="ui-main"><div class="ui-h">Souhrn konverzí</div><div class="ui-btns"><span class="ui-btn hl">+ Nová konverzní akce<em class="pin">2</em></span></div><div class="ui-table"><div class="ui-tr"><span>Konverzní akce</span><span>Stav</span></div><div class="ui-tr"><span>Odeslání formuláře</span><span class="ui-ok">Aktivní</span></div></div></div></div></div><figcaption>Cíle → Konverze → Souhrn → Nová konverzní akce. Odtud vedou obě cesty.</figcaption></figure>
           </li>
           <li>
             <h2>Cesta B: značka Google Ads přímo na webu</h2>
@@ -1773,14 +1884,17 @@ html, body { overflow-x: clip; }
               <li>Vyberte kategorii, třeba <b>Nákup</b> nebo <b>Odeslání formuláře pro potenciální zákazníky</b>.</li>
               <li>Získáte <b>ID konverze</b> a <b>štítek</b>. Nejlépe je vložte přes Google Tag Manager jako značku <b>Měření konverzí Google Ads</b>, spuštěnou na děkovací stránce nebo po odeslání formuláře.</li>
             </ul>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Google Ads <span>· Nová konverzní akce</span></div><div class="ui-main"><div class="ui-h">Co chcete měřit?</div><div class="ui-tiles"><div class="ui-tile on hl"><b>Web</b><small>cesta B</small><em class="pin">B</em></div><div class="ui-tile"><b>Aplikace</b></div><div class="ui-tile"><b>Telefonní hovory</b></div><div class="ui-tile hl"><b>Import</b><small>cesta A: Google Analytics 4</small><em class="pin">A</em></div></div></div></div><figcaption>Import z GA4 (cesta A), nebo měření přímo na webu (cesta B).</figcaption></figure>
           </li>
           <li>
             <h2>Nastavte hodnotu a počítání</h2>
             <p>U nákupu předávejte skutečnou hodnotu objednávky. U poptávek nastavte orientační hodnotu leadu. Počítání nastavte na <b>Každá</b> u nákupů a <b>Jedna</b> u poptávek, aby se jeden člověk nepočítal třikrát.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Google Ads <span>· Nastavení konverzní akce</span></div><div class="ui-main"><div class="ui-field"><span>Kategorie</span><b class="sel">Odeslání formuláře pro potenciální zákazníky</b></div><div class="ui-field"><span>Hodnota</span><b class="hl">1 000 Kč za konverzi<em class="pin">1</em></b></div><div class="ui-field"><span>Počítání</span></div><div class="ui-radio hl"><i class="on"></i>Jedna – vhodné pro poptávky<em class="pin">2</em></div><div class="ui-radio"><i></i>Každá – vhodné pro nákupy</div></div></div><figcaption>Hodnota konverze a počítání. U poptávek nastavte Jedna. Hodnota 1 000 Kč je jen příklad.</figcaption></figure>
           </li>
           <li>
             <h2>Zapněte rozšířené konverze a Consent Mode</h2>
             <p><b>Rozšířené konverze</b> posílají Googlu zašifrovaný e-mail z formuláře nebo objednávky a měření je díky nim přesnější. Cookie lišta zároveň musí předávat souhlas přes <b>Consent Mode v2</b>, jinak v EU přicházíte o velkou část dat.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Google Ads <span>· Nastavení konverzí</span></div><div class="ui-main"><div class="ui-toggle hl">Rozšířené konverze pro web<i class="on"></i><em class="pin">1</em></div><div class="ui-muted">Zašifrovaná data z formuláře (např. e-mail) zpřesní měření.</div><div class="ui-table"><div class="ui-tr"><span>Souhlas (Consent Mode v2)</span><span></span></div><div class="ui-tr"><span>ad_storage, analytics_storage</span><span class="ui-ok">✓</span></div><div class="ui-tr"><span>ad_user_data, ad_personalization</span><span class="ui-ok">✓</span></div></div></div></div><figcaption>Rozšířené konverze zapnuté a cookie lišta, která Googlu předává všechny čtyři typy souhlasu.</figcaption></figure>
           </li>
           <li>
             <h2>Ověřte, že měření funguje</h2>
@@ -1800,7 +1914,7 @@ html, body { overflow-x: clip; }
             <li>Spouštěč na všech stránkách místo na děkovací stránce.</li>
           </ul>
         </section>
-        <p class="guide-note">Google rozhraní občas upravuje, názvy tlačítek se proto můžou mírně lišit.</p>
+        <p class="guide-note">Google rozhraní občas upravuje, obrázky jsou proto ilustrační a názvy tlačítek se můžou mírně lišit.</p>
       </div>
       <aside class="guide-side">
         <div class="need">
@@ -1837,6 +1951,7 @@ html, body { overflow-x: clip; }
           <li>
             <h2>Vytvořte konverzi v Skliku</h2>
             <p>V rozhraní Skliku otevřete sekci <b>Konverze</b> a vytvořte novou. Pojmenujte ji (například „Objednávka“ nebo „Poptávkový formulář“), zvolte typ a nastavte hodnotu.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Sklik <span>· Konverze → Nová konverze</span></div><div class="ui-main"><div class="ui-field"><span>Název konverze</span><b class="hl">Poptávkový formulář<em class="pin">1</em></b></div><div class="ui-grid2"><div class="ui-field"><span>Typ</span><b class="sel">Poptávka</b></div><div class="ui-field"><span>Hodnota</span><b class="hl">1 000 Kč<em class="pin">2</em></b></div></div><div class="ui-btns"><span class="ui-btn">Vytvořit a získat kód</span></div></div></div><figcaption>Nová konverze v Skliku: srozumitelný název a hodnota. Hodnota je jen příklad.</figcaption></figure>
           </li>
           <li>
             <h2>Vložte konverzní kód na správné místo</h2>
@@ -1855,10 +1970,21 @@ html, body { overflow-x: clip; }
               <li><code>consent: 0</code> znamená nesouhlas. Seznam pak konverze anonymně modeluje.</li>
             </ul>
             <p>Cookie lišta musí hodnotu do kódu (nebo do Tag Manageru) předat. Šablony Sklik v Tag Manageru s tím počítají.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Konverzní kód <span>· ukázka, zkráceno</span></div><div class="ui-main"><pre class="ui-code"><span class="c">&lt;!-- Na děkovací stránku --&gt;</span>
+&lt;script src="https://c.seznam.cz/js/rc.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  var conversionConf = {
+    id: 12345678,
+    value: 1000,
+    <mark>consent: 1</mark>  <span class="c">// 1 = souhlas, 0 = nesouhlas</span>
+  };
+  window.rc &amp;&amp; window.rc.conversionHit(conversionConf);
+&lt;/script&gt;</pre></div></div><figcaption>Hodnotu consent musí doplnit cookie lišta podle toho, jak se návštěvník rozhodl. ID a hodnota jsou jen ukázka.</figcaption></figure>
           </li>
           <li>
             <h2>Zkontrolujte, že měření běží</h2>
             <p>Na webu otevřete vývojářské nástroje prohlížeče (klávesa F12), záložku <b>Síť</b>, a projděte konverzi. Měli byste vidět požadavek na Seznam s hodnotou <code>consent</code> 1 nebo 0. Hodnota −1 znamená, že souhlas se nepředává správně.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Vývojářské nástroje <span>· Síť</span></div><div class="ui-main"><div class="ui-table"><div class="ui-tr ui-tr--3"><span>Požadavek</span><span>Typ</span><span>Stav</span></div><div class="ui-tr ui-tr--3"><span>rc.js</span><span>script</span><span>200</span></div><div class="ui-tr ui-tr--3 hl"><span>c.seznam.cz</span><span>xhr</span><span>200</span><em class="pin">1</em></div></div><div class="ui-table"><div class="ui-tr"><span>Data požadavku</span><span></span></div><div class="ui-tr"><span>id</span><span>12345678</span></div><div class="ui-tr hl"><span>consent</span><span class="ui-ok">1</span><em class="pin">2</em></div></div></div></div><figcaption>Kontrola v prohlížeči: požadavek na Seznam a hodnota consent 1 nebo 0. Hodnota −1 znamená chybu.</figcaption></figure>
           </li>
           <li>
             <h2>Máte e-shop na Zboží.cz? Přidejte i jeho kód</h2>
@@ -1878,7 +2004,7 @@ html, body { overflow-x: clip; }
             <li>Nepředává se hodnota objednávky.</li>
           </ul>
         </section>
-        <p class="guide-note">Podrobnosti najdete v nápovědě Skliku. Názvy v rozhraní se můžou mírně lišit.</p>
+        <p class="guide-note">Podrobnosti najdete v nápovědě Skliku. Obrázky jsou ilustrační, názvy v rozhraní se můžou mírně lišit.</p>
       </div>
       <aside class="guide-side">
         <div class="need">
@@ -1924,6 +2050,7 @@ html, body { overflow-x: clip; }
           <li>
             <h2>Preheader doplní předmět</h2>
             <p>Preheader je šedý text vedle předmětu. Využijte ho k doplnění, ne k opakování. Pokud ho nenastavíte, zobrazí se tam první text e-mailu, často „Zobrazit v prohlížeči“.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Doručená pošta <span>· mobil</span></div><div class="ui-body"><div class="ui-mail"><i>K</i><b class="hl">Kavárna U Mostu<em class="pin">1</em></b><small>8:02</small><span class="hl">3 tipy, jak si doma udělat lepší espresso<em class="pin">2</em></span><span class="pre hl">A k tomu sleva 15 % na zrnkovou kávu do neděle<em class="pin">3</em></span></div><div class="ui-mail ui-mail--dim"><i>N</i><b>noreply@firma.cz</b><small>7:45</small><span>Newsletter č. 12</span><span class="pre">Zobrazit v prohlížeči | Pokud se e-mail nezobrazuje…</span></div></div></div><figcaption>① Odesílatel, ② předmět, ③ preheader. Dole pro srovnání e-mail, který skoro nikdo neotevře.</figcaption></figure>
           </li>
           <li>
             <h2>Posílejte relevantní obsah</h2>
@@ -1933,6 +2060,7 @@ html, body { overflow-x: clip; }
             <h2>Zajistěte doručitelnost</h2>
             <p>Nejlepší předmět nepomůže, když e-mail skončí ve spamu. Doména, ze které posíláte, musí mít nastavené <b>SPF, DKIM a DMARC</b>. Gmail a Yahoo je od roku 2024 vyžadují po hromadných odesílatelích, spolu s odhlášením jedním kliknutím.</p>
             <p>Pravidelně čistěte kontakty, které dlouho nic neotevřely. Zhoršují vaši pověst odesílatele.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Nastavení DNS <span>· vasefirma.cz</span></div><div class="ui-main"><div class="ui-table"><div class="ui-tr ui-tr--3"><span>Záznam</span><span>Typ</span><span>Stav</span></div><div class="ui-tr ui-tr--3 hl"><span>SPF</span><span>TXT</span><span class="ui-ok">✓ ověřeno</span><em class="pin">1</em></div><div class="ui-tr ui-tr--3 hl"><span>DKIM</span><span>TXT</span><span class="ui-ok">✓ ověřeno</span><em class="pin">2</em></div><div class="ui-tr ui-tr--3 hl"><span>DMARC</span><span>TXT</span><span class="ui-ok">✓ ověřeno</span><em class="pin">3</em></div></div><div class="ui-muted">Hodnoty záznamů vám vygeneruje nástroj, ze kterého posíláte.</div></div></div><figcaption>SPF, DKIM a DMARC jako TXT záznamy v DNS vaší domény. Bez nich končí e-maily často ve spamu.</figcaption></figure>
           </li>
           <li>
             <h2>Testujte čas odeslání</h2>
@@ -1941,6 +2069,7 @@ html, body { overflow-x: clip; }
           <li>
             <h2>A/B testujte předmět</h2>
             <p>Většina nástrojů umí poslat dvě verze předmětu menší části kontaktů a vítěznou pak rozeslat ostatním. Po pár rozesílkách zjistíte, co na vaše lidi funguje.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">A/B test předmětu <span>· ukázka</span></div><div class="ui-main"><div class="ui-ab"><div><span class="ui-muted">Varianta A</span><span>Novinky za březen</span><span class="ui-muted">Míra prokliku</span><b>1,8 %</b></div><div class="win hl"><span class="ui-tag">Vítěz</span><span>3 tipy, jak zlevnit dopravu</span><span class="ui-muted">Míra prokliku</span><b>4,1 %</b><em class="pin">1</em></div></div><div class="ui-muted">Test na 20 % kontaktů, vítěz se po 4 hodinách rozešle ostatním.</div></div></div><figcaption>Konkrétní předmět vyhrává nad obecným. Čísla jsou jen ilustrační.</figcaption></figure>
           </li>
           <li>
             <h2>Měřte to, na čem záleží</h2>
@@ -1961,6 +2090,7 @@ html, body { overflow-x: clip; }
             <li>Hodnocení úspěchu jen podle míry otevření.</li>
           </ul>
         </section>
+        <p class="guide-note">Obrázky jsou ilustrační.</p>
       </div>
       <aside class="guide-side">
         <div class="need">
