@@ -353,6 +353,68 @@ section { padding-block: 5rem; }
 @media (max-width: 900px) { .faq { grid-template-columns: minmax(0, 1fr); gap: 2rem; padding-block: 3rem; } }
 @media (prefers-reduced-motion: reduce) { .faq-list summary::after { transition: none; } }
 
+/* Guides: index cards */
+.guides { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; margin-bottom: 5rem; }
+.guide-card {
+  background: var(--wash); border-radius: 24px; padding: 1.75rem; display: grid; grid-template-rows: auto auto 1fr auto; gap: 0.85rem;
+  color: var(--ink); text-decoration: none; min-width: 0; transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+a.guide-card:hover { transform: translateY(-4px); box-shadow: 0 22px 40px -28px rgba(20, 22, 23, 0.45); }
+.guide-card h3 { font-size: 1.3rem; font-weight: 500; line-height: 1.25; }
+.guide-card p { color: var(--ink-2); font-size: 0.98rem; }
+.guide-card--cta { background: var(--ink); color: var(--paper); align-content: center; grid-template-rows: none; }
+.guide-card--cta .label { color: #9fb2dc; }
+.guide-card--cta .btn { justify-self: start; margin-top: 0.5rem; }
+.guide-meta { display: flex; flex-wrap: wrap; gap: 0.35rem 1rem; font-family: var(--f-mono); font-size: 0.78rem; color: var(--ink-2); }
+.guide-meta span + span::before { content: "·"; margin-right: 1rem; }
+@media (max-width: 960px) { .guides { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .guides { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .guide-card { transition: none; } a.guide-card:hover { transform: none; } }
+
+/* Guides: article */
+.back { display: inline-block; margin-top: 2rem; color: var(--indigo); font-family: var(--f-display); font-weight: 500; text-decoration: none; }
+.back:hover { text-decoration: underline; text-underline-offset: 4px; }
+.guide { display: grid; grid-template-columns: minmax(0, 46rem) minmax(0, 21rem); justify-content: space-between; gap: 3rem 4rem; padding-bottom: 5rem; }
+.guide-main { display: grid; gap: 2.5rem; min-width: 0; align-content: start; }
+.guide-head { display: grid; gap: 1.1rem; padding-top: 1.5rem; }
+.guide-head h1 { font-size: clamp(2.2rem, 4.8vw, 3.4rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; }
+.guide-head .lead { max-width: none; }
+.guide code { font-family: var(--f-mono); font-size: 0.88em; background: var(--mist); border-radius: 6px; padding: 0.1em 0.4em; }
+.guide-steps { list-style: none; counter-reset: step; padding: 0; margin: 0; display: grid; gap: 2.25rem; }
+.guide-steps > li { counter-increment: step; position: relative; display: grid; gap: 0.75rem; padding-left: 4rem; min-width: 0; }
+.guide-steps > li::before {
+  content: counter(step); position: absolute; left: 0; top: 0; display: grid; place-content: center; width: 2.75rem; height: 2.75rem; border-radius: 50%;
+  background: var(--wash); color: var(--dot); font-family: var(--f-display); font-weight: 700; font-size: 1.15rem;
+}
+.guide-steps h2 { font-size: clamp(1.3rem, 2.4vw, 1.6rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.015em; padding-top: 0.45rem; }
+.guide-steps p { color: var(--ink-2); }
+.guide-steps b { color: var(--ink); font-weight: 500; }
+.guide ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.55rem; }
+/* Bullets sit in the padding so inline <b>/<code> keep normal text wrapping */
+.guide-steps ul li, .mistakes li, .need li { position: relative; padding-left: 1.6rem; color: var(--ink-2); }
+.guide-steps ul li::before, .need li::before, .mistakes li::before { position: absolute; left: 0; }
+.guide-steps ul li::before, .need li::before { content: "→"; color: var(--dot); font-weight: 500; }
+.tip { background: var(--wash); border-radius: 20px; padding: 1.5rem 1.75rem; display: grid; gap: 0.5rem; }
+.tip > b { font-family: var(--f-display); font-weight: 700; color: var(--dot); }
+.tip p b { font-weight: 500; }
+.mistakes { display: grid; gap: 1rem; padding: 0; }
+.mistakes h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+.mistakes li::before { content: "✕"; color: #c4553f; font-weight: 700; }
+.guide-note { font-size: 0.85rem; color: var(--ink-2); }
+.guide-side { display: grid; gap: 1.25rem; align-content: start; position: sticky; top: 6rem; align-self: start; padding-top: 1.5rem; }
+.need { background: var(--mist); border-radius: 24px; padding: 1.75rem; display: grid; gap: 1rem; }
+.need h2, .guide-cta h2 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; }
+.guide-cta { background: var(--ink); color: var(--paper); border-radius: 24px; padding: 1.75rem; display: grid; gap: 1rem; justify-items: start; }
+.guide-cta p { color: #c8d2ea; }
+@media (max-width: 1020px) {
+  .guide { grid-template-columns: minmax(0, 1fr); }
+  .guide-side { position: static; padding-top: 0; }
+}
+@media (max-width: 520px) {
+  .guide-steps > li { padding-left: 3.1rem; }
+  .guide-steps > li::before { width: 2.25rem; height: 2.25rem; font-size: 1rem; }
+}
+
 /* References */
 .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
 .filters button { font: inherit; font-size: 0.92rem; border: 0; cursor: pointer; border-radius: 999px; padding: 0.5rem 1.05rem; background: var(--mist); color: var(--ink); }
@@ -565,7 +627,7 @@ html, body { overflow-x: clip; }
 /* Scroll reveal: purely position-driven, so everything stays visible where it is unsupported */
 @keyframes reveal { from { opacity: 0.25; transform: translateY(32px) scale(0.98); } to { opacity: 1; transform: none; } }
 @supports (animation-timeline: view()) {
-  .service, .steps li, .ref, .card, .section-head, .cta-band, .about-split, .pillar, .detail-intro, .legal section, .teaser, .plan, .price-box, .faq-list {
+  .service, .steps li, .ref, .card, .section-head, .cta-band, .about-split, .pillar, .detail-intro, .legal section, .teaser, .plan, .price-box, .faq-list, .guide-card {
     animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 35%;
   }
 }
@@ -659,6 +721,7 @@ html, body { overflow-x: clip; }
       <a href="#o-nas">O nás</a>
       <a href="#reference">Reference</a>
       <a href="#cenik">Ceník</a>
+      <a href="#navody">Návody</a>
       <a href="#kontakt">Kontakt</a>
       <a class="btn btn--primary" href="#kontakt">Chci audit zdarma</a>
     </div>
@@ -1447,6 +1510,477 @@ html, body { overflow-x: clip; }
   </div>
 </div>
 
+<!-- ============ NÁVODY ============ -->
+<div class="view" data-view="navody" hidden>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="label">Návody</p>
+      <h1>Návody, které vám ušetří hodiny</h1>
+      <p class="lead">Praktické postupy krok za krokem, sepsané specialisty, kteří to dělají každý den. Zvládnete je sami. A když ne, rádi to uděláme za vás.</p>
+    </header>
+
+    <div class="guides">
+      <a class="guide-card s-web" href="#navod-ga4">
+        <span class="label tag">Měření</span>
+        <h3>Jak nastavit Google Analytics 4 krok za krokem</h3>
+        <p>Od založení účtu přes vložení kódu na web až po klíčové události. Bez toho nevíte, co vám marketing přináší.</p>
+        <span class="guide-meta"><span>7 min čtení</span><span>Pro začátečníky</span></span>
+      </a>
+      <a class="guide-card s-ads" href="#navod-meta">
+        <span class="label tag">Reklama</span>
+        <h3>Jak spustit první reklamu na Facebooku a Instagramu</h3>
+        <p>Firemní účet, Meta Pixel, správný cíl kampaně a reklama, která neprojede rozpočet za prokliky.</p>
+        <span class="guide-meta"><span>8 min čtení</span><span>Pro začátečníky</span></span>
+      </a>
+      <a class="guide-card s-ads" href="#navod-google-ads">
+        <span class="label tag">Měření</span>
+        <h3>Jak měřit konverze z Google Ads</h3>
+        <p>Dvě cesty, jak Googlu říct, které kliky přinesly poptávku nebo objednávku. A jak se vyhnout dvojímu počítání.</p>
+        <span class="guide-meta"><span>6 min čtení</span><span>Mírně pokročilí</span></span>
+      </a>
+      <a class="guide-card s-ads" href="#navod-sklik">
+        <span class="label tag">Měření</span>
+        <h3>Jak nastavit měření konverzí v Skliku</h3>
+        <p>Konverzní kód, retargeting a povinný parametr souhlasu, bez kterého Seznam data nezpracuje.</p>
+        <span class="guide-meta"><span>5 min čtení</span><span>Mírně pokročilí</span></span>
+      </a>
+      <a class="guide-card s-mail" href="#navod-email">
+        <span class="label tag">E-mail marketing</span>
+        <h3>Jak napsat e-mail, který lidé otevřou</h3>
+        <p>Odesílatel, předmět, preheader a doručitelnost. Osm věcí, které rozhodují, jestli e-mail skončí přečtený, nebo ve spamu.</p>
+        <span class="guide-meta"><span>6 min čtení</span><span>Pro začátečníky</span></span>
+      </a>
+      <div class="guide-card guide-card--cta">
+        <span class="label">Nechcete to řešit sami?</span>
+        <h3>Nastavíme to za vás a ukážeme, co čísla říkají</h3>
+        <a class="btn btn--primary" href="#kontakt">Chci audit zdarma</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Návod: GA4 -->
+<div class="view" data-view="navod-ga4" data-nav="navody" hidden>
+  <div class="wrap">
+    <a class="back" href="#navody">← Všechny návody</a>
+    <article class="guide s-web">
+      <div class="guide-main">
+        <header class="guide-head">
+          <p class="label tag">Měření</p>
+          <h1>Jak nastavit Google Analytics 4 krok za krokem</h1>
+          <p class="lead">Bez měření je marketing jen odhad. Tady je postup, jak GA4 nastavit správně hned napoprvé, včetně věcí, na které se často zapomíná.</p>
+          <p class="guide-meta"><span>7 min čtení</span><span>Pro začátečníky</span><span>Aktualizováno 11/2026</span></p>
+        </header>
+        <ol class="guide-steps">
+          <li>
+            <h2>Založte účet a službu</h2>
+            <p>Přihlaste se na <b>analytics.google.com</b> firemním Google účtem. V části <b>Administrátor</b> klikněte na <b>Vytvořit → Účet</b>. Účet pojmenujte podle firmy, službu (property) podle webu.</p>
+            <p>U služby nastavte <b>časové pásmo Česko</b> a <b>měnu CZK</b>. Špatná měna později zkreslí všechny tržby.</p>
+          </li>
+          <li>
+            <h2>Vyplňte údaje o firmě a cíle</h2>
+            <p>Obor, velikost firmy a hlavní cíl (například generování potenciálních zákazníků nebo online prodeje). Podle toho vám GA4 připraví výchozí přehledy.</p>
+          </li>
+          <li>
+            <h2>Vytvořte webový datový stream</h2>
+            <p>Zvolte <b>Web</b>, zadejte adresu webu a název streamu. Dostanete <b>ID měření</b> ve tvaru <code>G-XXXXXXXXXX</code>.</p>
+            <p>Nechte zapnuté <b>Vylepšené měření</b>. Automaticky sbírá zobrazení stránek, scrollování, odchozí kliknutí, vyhledávání na webu a stahování souborů.</p>
+          </li>
+          <li>
+            <h2>Vložte měřicí kód na web</h2>
+            <p>Vyberte jednu cestu, ne víc najednou:</p>
+            <ul>
+              <li><b>Integrace v redakčním systému.</b> Shoptet, Shopify i WordPress (plugin Site Kit) mají pole pro ID měření.</li>
+              <li><b>Google Tag Manager.</b> Přidejte značku <b>Značka Google</b> s vaším ID a spouštěčem na všech stránkách. Doporučujeme, další měření pak přidáte bez zásahu do webu.</li>
+              <li><b>Kód přímo do webu.</b> Zkopírujte kód z pokynů k instalaci a vložte ho do hlavičky <code>&lt;head&gt;</code> každé stránky.</li>
+            </ul>
+          </li>
+          <li>
+            <h2>Vyřešte souhlas s cookies</h2>
+            <p>V EU musí web před měřením získat souhlas návštěvníka. Cookie lišta musí umět předat souhlas Googlu přes <b>Consent Mode v2</b>. Bez toho přicházíte o data a riskujete problém s GDPR.</p>
+          </li>
+          <li>
+            <h2>Ověřte, že data tečou</h2>
+            <p>Otevřete web třeba na mobilu a v GA4 se podívejte do přehledu <b>V reálném čase</b>. Do pár minut byste se tam měli vidět. Podrobnější kontrolu umožní nástroj <b>Tag Assistant</b>.</p>
+          </li>
+          <li>
+            <h2>Nastavte klíčové události</h2>
+            <p>Klíčové události (dříve konverze) jsou akce, které pro vás mají hodnotu: odeslaný formulář, nákup, klik na telefon. V <b>Administrátor → Události</b> je označte jako klíčové. Teprve pak uvidíte, které kanály přinášejí obchod.</p>
+          </li>
+          <li>
+            <h2>Prodlužte uchovávání dat a propojte služby</h2>
+            <p>V <b>Administrátor → Uchovávání dat</b> přepněte z výchozích 2 měsíců na <b>14 měsíců</b>. Jinak nebudete moct porovnávat delší období.</p>
+            <p>Nakonec propojte GA4 s <b>Google Ads</b> a <b>Search Console</b> v části <b>Propojení služeb</b>.</p>
+          </li>
+        </ol>
+        <aside class="tip">
+          <b>Tip od nás</b>
+          <p>V <b>Datové streamy → Nastavení značky → Definovat interní provoz</b> vyřaďte IP adresu své kanceláře. Vaše vlastní návštěvy jinak zkreslují čísla, hlavně u menších webů.</p>
+        </aside>
+        <section class="mistakes">
+          <h2>Nejčastější chyby</h2>
+          <ul>
+            <li>Měřicí kód je na webu dvakrát (třeba v pluginu i v Tag Manageru), takže se všechno počítá dvojmo.</li>
+            <li>Chybí klíčové události. GA4 pak ukazuje návštěvnost, ale ne obchod.</li>
+            <li>Cookie lišta nepředává souhlas a data ve velkém chybí.</li>
+            <li>Uchovávání dat zůstalo na 2 měsících.</li>
+          </ul>
+        </section>
+        <p class="guide-note">Google rozhraní občas upravuje, názvy tlačítek se proto můžou mírně lišit.</p>
+      </div>
+      <aside class="guide-side">
+        <div class="need">
+          <h2>Co budete potřebovat</h2>
+          <ul>
+            <li>Firemní Google účet</li>
+            <li>Přístup k úpravám webu nebo k Google Tag Manageru</li>
+            <li>Cookie lištu s podporou Consent Mode v2</li>
+          </ul>
+        </div>
+        <div class="guide-cta">
+          <h2>Nechcete to řešit sami?</h2>
+          <p>GA4 vám nastavíme včetně klíčových událostí a souhlasu s cookies. Začneme auditem zdarma.</p>
+          <a class="btn btn--primary" href="#kontakt">Chci audit zdarma</a>
+        </div>
+      </aside>
+    </article>
+  </div>
+</div>
+
+<!-- Návod: Meta -->
+<div class="view" data-view="navod-meta" data-nav="navody" hidden>
+  <div class="wrap">
+    <a class="back" href="#navody">← Všechny návody</a>
+    <article class="guide s-ads">
+      <div class="guide-main">
+        <header class="guide-head">
+          <p class="label tag">Reklama</p>
+          <h1>Jak spustit první reklamu na Facebooku a Instagramu</h1>
+          <p class="lead">Tlačítko „Propagovat příspěvek“ je lákavé, ale většinou z něj máte jen lajky. Tady je postup, jak spustit kampaň, která přivádí zákazníky.</p>
+          <p class="guide-meta"><span>8 min čtení</span><span>Pro začátečníky</span><span>Aktualizováno 11/2026</span></p>
+        </header>
+        <ol class="guide-steps">
+          <li>
+            <h2>Připravte firemní portfolio a reklamní účet</h2>
+            <p>Na <b>business.facebook.com</b> založte firemní portfolio a přidejte do něj facebookovou stránku a instagramový účet. Pak vytvořte <b>reklamní účet</b> a přidejte platební metodu.</p>
+            <p>Pečlivě zvolte <b>měnu a časové pásmo</b>. Měnu u existujícího účtu později nezměníte, musel by vzniknout nový.</p>
+          </li>
+          <li>
+            <h2>Nainstalujte Meta Pixel</h2>
+            <p>Ve <b>Správci událostí</b> vytvořte datovou sadu a nainstalujte Meta Pixel na web. Nejsnáz přes Google Tag Manager nebo integraci v e-shopu. Nastavte události jako <b>Lead</b> nebo <b>Purchase</b>.</p>
+            <p>Pokud to jde, přidejte i <b>Conversions API</b>, které posílá data přímo ze serveru. Měření je pak přesnější i při blokování cookies.</p>
+          </li>
+          <li>
+            <h2>Vyberte správný cíl kampaně</h2>
+            <p>Ve <b>Správci reklam</b> klikněte na <b>Vytvořit</b>. Meta nabízí šest cílů: povědomí, návštěvnost, interakce, potenciální zákazníci, propagace aplikace a prodeje.</p>
+            <ul>
+              <li><b>E-shop:</b> Prodeje</li>
+              <li><b>Služby a B2B:</b> Potenciální zákazníci</li>
+            </ul>
+            <p>Cíl Návštěvnost přivede levné prokliky, ale málokdy zákazníky. Meta pak hledá lidi, kteří rádi klikají, ne ty, kteří nakupují.</p>
+          </li>
+          <li>
+            <h2>Nastavte rozpočet</h2>
+            <p>Začněte denním rozpočtem, který si můžete dovolit nechat běžet aspoň dva týdny. Algoritmus se nejdřív učí. Meta uvádí, že fáze učení potřebuje zhruba 50 konverzí týdně na sadu reklam. S malým rozpočtem proto mějte méně sad reklam, ne víc.</p>
+          </li>
+          <li>
+            <h2>Zvolte publikum a umístění</h2>
+            <p>Nastavte lokalitu (celé Česko, nebo jen region, kde působíte) a případně věk. Pro začátek dává smysl <b>Advantage+ publikum</b>, kdy Meta hledá vhodné lidi sama podle toho, kdo konvertuje.</p>
+            <p>U umístění nechte <b>Advantage+ umístění</b>. Reklama se pak zobrazuje tam, kde je nejlevnější výsledek.</p>
+          </li>
+          <li>
+            <h2>Připravte reklamu</h2>
+            <ul>
+              <li><b>Kreativa ve více formátech:</b> čtverec nebo 4:5 pro feed, na výšku 9:16 pro Stories a Reels.</li>
+              <li><b>Text:</b> první věta musí zaujmout, zbytek se schová pod „Zobrazit více“.</li>
+              <li><b>Výzva k akci:</b> například Zjistit více, Nakoupit, Registrovat se.</li>
+              <li><b>Odkaz s UTM parametry,</b> abyste výsledky viděli i v Google Analytics.</li>
+            </ul>
+            <p>Připravte aspoň 3 varianty kreativy a nechte Meta zjistit, která funguje.</p>
+          </li>
+          <li>
+            <h2>Publikujte a nechte kampaň učit se</h2>
+            <p>Po kontrole klikněte na <b>Publikovat</b>. Schválení obvykle trvá do 24 hodin. Pak kampaň nechte aspoň 3–4 dny bez větších zásahů. Každá velká změna rozpočtu nebo publika učení restartuje.</p>
+          </li>
+        </ol>
+        <aside class="tip">
+          <b>Tip od nás</b>
+          <p>Nejvíc o úspěchu rozhoduje kreativa, ne nastavení publika. Když kampaň nefunguje, zkuste nejdřív nový obrázek nebo video, ne jiné cílení.</p>
+        </aside>
+        <section class="mistakes">
+          <h2>Nejčastější chyby</h2>
+          <ul>
+            <li>Propagace příspěvku místo kampaně ve Správci reklam.</li>
+            <li>Cíl Návštěvnost u kampaně, která má přinést objednávky.</li>
+            <li>Chybějící nebo špatně nastavený Meta Pixel.</li>
+            <li>Příliš úzké publikum a jediná kreativa.</li>
+            <li>Úpravy kampaně každý den.</li>
+          </ul>
+        </section>
+        <p class="guide-note">Meta rozhraní často mění, názvy tlačítek se proto můžou mírně lišit.</p>
+      </div>
+      <aside class="guide-side">
+        <div class="need">
+          <h2>Co budete potřebovat</h2>
+          <ul>
+            <li>Facebookovou stránku firmy</li>
+            <li>Firemní portfolio v Meta Business Suite</li>
+            <li>Platební kartu pro reklamní účet</li>
+            <li>Přístup k webu kvůli Meta Pixelu</li>
+          </ul>
+        </div>
+        <div class="guide-cta">
+          <h2>Nechcete to řešit sami?</h2>
+          <p>Kampaně na Facebooku a Instagramu vám nastavíme a budeme je řídit podle objednávek. Začneme auditem zdarma.</p>
+          <a class="btn btn--primary" href="#kontakt">Chci audit zdarma</a>
+        </div>
+      </aside>
+    </article>
+  </div>
+</div>
+
+<!-- Návod: Google Ads konverze -->
+<div class="view" data-view="navod-google-ads" data-nav="navody" hidden>
+  <div class="wrap">
+    <a class="back" href="#navody">← Všechny návody</a>
+    <article class="guide s-ads">
+      <div class="guide-main">
+        <header class="guide-head">
+          <p class="label tag">Měření</p>
+          <h1>Jak měřit konverze z Google Ads</h1>
+          <p class="lead">Google Ads bez měření konverzí optimalizuje na kliky. S měřením na poptávky a objednávky. Ukážeme vám dvě cesty, jak ho nastavit.</p>
+          <p class="guide-meta"><span>6 min čtení</span><span>Mírně pokročilí</span><span>Aktualizováno 11/2026</span></p>
+        </header>
+        <ol class="guide-steps">
+          <li>
+            <h2>Rozhodněte, co je pro vás konverze</h2>
+            <p>Odeslaný formulář, nákup, klik na telefon, rezervace. Vyberte 1–2 hlavní akce, podle kterých má Google kampaně řídit. Ostatní můžete sledovat jako doplňkové.</p>
+          </li>
+          <li>
+            <h2>Cesta A: import z Google Analytics 4</h2>
+            <p>Nejrychlejší, pokud už máte funkční GA4 s nastavenými klíčovými událostmi.</p>
+            <ul>
+              <li>V GA4 propojte službu s Google Ads (<b>Administrátor → Propojení služeb → Google Ads</b>).</li>
+              <li>V Google Ads otevřete <b>Cíle → Konverze → Souhrn</b> a klikněte na <b>Nová konverzní akce</b>.</li>
+              <li>Zvolte <b>Import → Google Analytics 4</b> a vyberte klíčové události.</li>
+            </ul>
+          </li>
+          <li>
+            <h2>Cesta B: značka Google Ads přímo na webu</h2>
+            <p>Přesnější a rychlejší pro optimalizaci kampaní.</p>
+            <ul>
+              <li>V <b>Cíle → Konverze → Souhrn</b> zvolte <b>Nová konverzní akce → Web</b> a zadejte doménu.</li>
+              <li>Vyberte kategorii, třeba <b>Nákup</b> nebo <b>Odeslání formuláře pro potenciální zákazníky</b>.</li>
+              <li>Získáte <b>ID konverze</b> a <b>štítek</b>. Nejlépe je vložte přes Google Tag Manager jako značku <b>Měření konverzí Google Ads</b>, spuštěnou na děkovací stránce nebo po odeslání formuláře.</li>
+            </ul>
+          </li>
+          <li>
+            <h2>Nastavte hodnotu a počítání</h2>
+            <p>U nákupu předávejte skutečnou hodnotu objednávky. U poptávek nastavte orientační hodnotu leadu. Počítání nastavte na <b>Každá</b> u nákupů a <b>Jedna</b> u poptávek, aby se jeden člověk nepočítal třikrát.</p>
+          </li>
+          <li>
+            <h2>Zapněte rozšířené konverze a Consent Mode</h2>
+            <p><b>Rozšířené konverze</b> posílají Googlu zašifrovaný e-mail z formuláře nebo objednávky a měření je díky nim přesnější. Cookie lišta zároveň musí předávat souhlas přes <b>Consent Mode v2</b>, jinak v EU přicházíte o velkou část dat.</p>
+          </li>
+          <li>
+            <h2>Ověřte, že měření funguje</h2>
+            <p>Udělejte testovací konverzi a zkontrolujte ji v <b>Tag Assistantu</b>. V přehledu konverzí se stav změní na aktivní. První konverze se v Google Ads můžou objevit až s několikahodinovým zpožděním.</p>
+          </li>
+        </ol>
+        <aside class="tip">
+          <b>Tip od nás</b>
+          <p>Jako primární (podle nich Google optimalizuje) nechte jen konverze, které opravdu znamenají obchod. Když bude primární i „zobrazení stránky kontakt“, kampaně začnou honit levné a bezcenné akce.</p>
+        </aside>
+        <section class="mistakes">
+          <h2>Nejčastější chyby</h2>
+          <ul>
+            <li>Stejná konverze měřená dvakrát (import z GA4 i značka Google Ads) a obě jako primární.</li>
+            <li>Počítání „Každá“ u poptávkových formulářů.</li>
+            <li>Chybějící hodnota konverze, takže nevidíte návratnost.</li>
+            <li>Spouštěč na všech stránkách místo na děkovací stránce.</li>
+          </ul>
+        </section>
+        <p class="guide-note">Google rozhraní občas upravuje, názvy tlačítek se proto můžou mírně lišit.</p>
+      </div>
+      <aside class="guide-side">
+        <div class="need">
+          <h2>Co budete potřebovat</h2>
+          <ul>
+            <li>Účet Google Ads</li>
+            <li>Funkční GA4, nebo přístup do Google Tag Manageru</li>
+            <li>Cookie lištu s podporou Consent Mode v2</li>
+          </ul>
+        </div>
+        <div class="guide-cta">
+          <h2>Nechcete to řešit sami?</h2>
+          <p>Měření konverzí vám nastavíme a zkontrolujeme, že čísla v Google Ads sedí. Začneme auditem zdarma.</p>
+          <a class="btn btn--primary" href="#kontakt">Chci audit zdarma</a>
+        </div>
+      </aside>
+    </article>
+  </div>
+</div>
+
+<!-- Návod: Sklik -->
+<div class="view" data-view="navod-sklik" data-nav="navody" hidden>
+  <div class="wrap">
+    <a class="back" href="#navody">← Všechny návody</a>
+    <article class="guide s-ads">
+      <div class="guide-main">
+        <header class="guide-head">
+          <p class="label tag">Měření</p>
+          <h1>Jak nastavit měření konverzí v Skliku</h1>
+          <p class="lead">Sklik je v Česku pořád silný kanál, hlavně pro lokální služby a e-shopy. Aby se dal řídit podle výsledků, potřebuje správně nastavené konverze.</p>
+          <p class="guide-meta"><span>5 min čtení</span><span>Mírně pokročilí</span><span>Aktualizováno 11/2026</span></p>
+        </header>
+        <ol class="guide-steps">
+          <li>
+            <h2>Vytvořte konverzi v Skliku</h2>
+            <p>V rozhraní Skliku otevřete sekci <b>Konverze</b> a vytvořte novou. Pojmenujte ji (například „Objednávka“ nebo „Poptávkový formulář“), zvolte typ a nastavte hodnotu.</p>
+          </li>
+          <li>
+            <h2>Vložte konverzní kód na správné místo</h2>
+            <p>Sklik vygeneruje konverzní kód s ID. Patří jen tam, kde konverze nastává: na děkovací stránku po objednávce nebo po odeslání formuláře. Nejjednodušší je použít oficiální <b>šablonu Sklik v Google Tag Manageru</b>.</p>
+            <p>Seznam doporučuje kód načítat synchronně, tedy bez atributu <code>async</code>.</p>
+          </li>
+          <li>
+            <h2>Přidejte retargetingový kód na celý web</h2>
+            <p>Retargetingový kód patří na všechny stránky. Umožní oslovit lidi, kteří už na webu byli, a Seznamu pomáhá lépe přiřazovat konverze.</p>
+          </li>
+          <li>
+            <h2>Nezapomeňte na parametr souhlasu</h2>
+            <p>Od <b>1. srpna 2024</b> musí všechny reklamní kódy Skliku obsahovat parametr <code>consent</code>. Kódy bez něj Seznam nezpracuje.</p>
+            <ul>
+              <li><code>consent: 1</code> znamená, že návštěvník souhlasil s cookies.</li>
+              <li><code>consent: 0</code> znamená nesouhlas. Seznam pak konverze anonymně modeluje.</li>
+            </ul>
+            <p>Cookie lišta musí hodnotu do kódu (nebo do Tag Manageru) předat. Šablony Sklik v Tag Manageru s tím počítají.</p>
+          </li>
+          <li>
+            <h2>Zkontrolujte, že měření běží</h2>
+            <p>Na webu otevřete vývojářské nástroje prohlížeče (klávesa F12), záložku <b>Síť</b>, a projděte konverzi. Měli byste vidět požadavek na Seznam s hodnotou <code>consent</code> 1 nebo 0. Hodnota −1 znamená, že souhlas se nepředává správně.</p>
+          </li>
+          <li>
+            <h2>Máte e-shop na Zboží.cz? Přidejte i jeho kód</h2>
+            <p>Zboží.cz má vlastní konverzní kód. Bez něj neuvidíte, kolik objednávek vám srovnávač přinesl.</p>
+          </li>
+        </ol>
+        <aside class="tip">
+          <b>Tip od nás</b>
+          <p>Po nasazení porovnejte počet konverzí v Skliku s objednávkami v e-shopu nebo poptávkami v e-mailu. Velký rozdíl skoro vždy znamená chybu v souhlasu nebo v umístění kódu.</p>
+        </aside>
+        <section class="mistakes">
+          <h2>Nejčastější chyby</h2>
+          <ul>
+            <li>V kódu chybí parametr <code>consent</code> nebo se předává −1.</li>
+            <li>Konverzní kód je na všech stránkách místo jen na děkovací.</li>
+            <li>Kód se načítá asynchronně.</li>
+            <li>Nepředává se hodnota objednávky.</li>
+          </ul>
+        </section>
+        <p class="guide-note">Podrobnosti najdete v nápovědě Skliku. Názvy v rozhraní se můžou mírně lišit.</p>
+      </div>
+      <aside class="guide-side">
+        <div class="need">
+          <h2>Co budete potřebovat</h2>
+          <ul>
+            <li>Účet Sklik</li>
+            <li>Přístup k webu nebo do Google Tag Manageru</li>
+            <li>Cookie lištu, která umí předat souhlas</li>
+          </ul>
+        </div>
+        <div class="guide-cta">
+          <h2>Nechcete to řešit sami?</h2>
+          <p>Sklik vám nastavíme včetně souhlasu s cookies a ověříme, že konverze sedí. Začneme auditem zdarma.</p>
+          <a class="btn btn--primary" href="#kontakt">Chci audit zdarma</a>
+        </div>
+      </aside>
+    </article>
+  </div>
+</div>
+
+<!-- Návod: E-mail -->
+<div class="view" data-view="navod-email" data-nav="navody" hidden>
+  <div class="wrap">
+    <a class="back" href="#navody">← Všechny návody</a>
+    <article class="guide s-mail">
+      <div class="guide-main">
+        <header class="guide-head">
+          <p class="label tag">E-mail marketing</p>
+          <h1>Jak napsat e-mail, který lidé otevřou</h1>
+          <p class="lead">Lidé se rozhodují během pár vteřin podle tří věcí: kdo píše, o čem a jestli to stojí za otevření. Tady je osm věcí, které v tom rozhodují.</p>
+          <p class="guide-meta"><span>6 min čtení</span><span>Pro začátečníky</span><span>Aktualizováno 11/2026</span></p>
+        </header>
+        <ol class="guide-steps">
+          <li>
+            <h2>Odesílatel, kterého lidé znají</h2>
+            <p>Jméno odesílatele čtou lidé jako první. Použijte název firmy, který znají, nebo kombinaci člověka a firmy, třeba „Jana z Kavárny U Mostu“. Nikdy ne <code>noreply@</code>.</p>
+          </li>
+          <li>
+            <h2>Předmět: krátký a konkrétní</h2>
+            <p>Na mobilu se zobrazí zhruba 40 znaků, tak to nejdůležitější dejte na začátek. Slibte konkrétní přínos, ne obecnou novinku. „3 tipy, jak zlevnit dopravu“ funguje líp než „Novinky za březen“.</p>
+            <p>Vynechte falešnou naléhavost a VELKÁ PÍSMENA. Spamové filtry i lidé je poznají.</p>
+          </li>
+          <li>
+            <h2>Preheader doplní předmět</h2>
+            <p>Preheader je šedý text vedle předmětu. Využijte ho k doplnění, ne k opakování. Pokud ho nenastavíte, zobrazí se tam první text e-mailu, často „Zobrazit v prohlížeči“.</p>
+          </li>
+          <li>
+            <h2>Posílejte relevantní obsah</h2>
+            <p>Stejný e-mail pro všechny je nejrychlejší cesta k odhlášení. Rozdělte kontakty aspoň na nové a stálé zákazníky, nebo podle toho, o co se zajímají. Menší, ale relevantní rozesílka má víc otevření i objednávek.</p>
+          </li>
+          <li>
+            <h2>Zajistěte doručitelnost</h2>
+            <p>Nejlepší předmět nepomůže, když e-mail skončí ve spamu. Doména, ze které posíláte, musí mít nastavené <b>SPF, DKIM a DMARC</b>. Gmail a Yahoo je od roku 2024 vyžadují po hromadných odesílatelích, spolu s odhlášením jedním kliknutím.</p>
+            <p>Pravidelně čistěte kontakty, které dlouho nic neotevřely. Zhoršují vaši pověst odesílatele.</p>
+          </li>
+          <li>
+            <h2>Testujte čas odeslání</h2>
+            <p>Univerzálně nejlepší čas neexistuje. B2B kontakty často čtou ráno v pracovní dny, e-shopy můžou mít nejlepší výsledky večer nebo o víkendu. Vyzkoušejte to na vlastních datech.</p>
+          </li>
+          <li>
+            <h2>A/B testujte předmět</h2>
+            <p>Většina nástrojů umí poslat dvě verze předmětu menší části kontaktů a vítěznou pak rozeslat ostatním. Po pár rozesílkách zjistíte, co na vaše lidi funguje.</p>
+          </li>
+          <li>
+            <h2>Měřte to, na čem záleží</h2>
+            <p>Míru otevření nafukuje funkce Apple Mail, která e-maily „otevírá“ automaticky. Sledujte proto hlavně <b>prokliky a objednávky</b>. Do odkazů dejte UTM parametry, ať výsledky vidíte i v Google Analytics.</p>
+          </li>
+        </ol>
+        <aside class="tip">
+          <b>Tip od nás</b>
+          <p>Největší výsledky nepřinášejí newslettery, ale automatizace: uvítací série, opuštěný košík, připomenutí po nákupu. Nastavíte je jednou a pracují za vás každý den.</p>
+        </aside>
+        <section class="mistakes">
+          <h2>Nejčastější chyby</h2>
+          <ul>
+            <li>Odesílatel <code>noreply@</code> nebo neznámé jméno.</li>
+            <li>Obecný předmět typu „Newsletter č. 12“.</li>
+            <li>Chybějící SPF, DKIM a DMARC.</li>
+            <li>Stejný e-mail pro celou databázi.</li>
+            <li>Hodnocení úspěchu jen podle míry otevření.</li>
+          </ul>
+        </section>
+      </div>
+      <aside class="guide-side">
+        <div class="need">
+          <h2>Co budete potřebovat</h2>
+          <ul>
+            <li>Nástroj na rozesílky (Ecomail, SmartEmailing, Mailchimp a podobně)</li>
+            <li>Přístup k nastavení DNS vaší domény</li>
+            <li>Databázi kontaktů se souhlasem</li>
+          </ul>
+        </div>
+        <div class="guide-cta">
+          <h2>Nechcete to řešit sami?</h2>
+          <p>Postavíme vám automatizace a newslettery, které lidé otevírají. Začneme auditem zdarma.</p>
+          <a class="btn btn--primary" href="#kontakt">Chci audit zdarma</a>
+        </div>
+      </aside>
+    </article>
+  </div>
+</div>
+
 <!-- ============ OCHRANA OSOBNÍCH ÚDAJŮ ============ -->
 <div class="view" data-view="ochrana-udaju" hidden>
   <div class="wrap">
@@ -1532,6 +2066,7 @@ html, body { overflow-x: clip; }
       <a href="#reference">Reference</a>
       <a href="#cenik">Ceník</a>
       <a href="#caste-otazky">Časté otázky</a>
+      <a href="#navody">Návody</a>
       <a href="#kontakt">Kontakt</a>
       <a href="https://www.linkedin.com/company/advenue/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://www.facebook.com/advenueagency" target="_blank" rel="noopener">Facebook</a>
@@ -1660,7 +2195,7 @@ html, body { overflow-x: clip; }
     }
     Object.keys(views).forEach(function (k) { views[k].hidden = views[k] !== view; });
     navLinks.forEach(function (a) {
-      if (a.getAttribute("href") === "#" + view.dataset.view) a.setAttribute("aria-current", "page");
+      if (a.getAttribute("href") === "#" + (view.dataset.nav || view.dataset.view)) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");
     });
     if (target) target.scrollIntoView(); else window.scrollTo(0, 0);
