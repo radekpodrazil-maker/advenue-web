@@ -108,7 +108,8 @@ p { margin: 0; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--paper); }
 [id] { scroll-margin-top: 96px; }
 .menu-btn { display: none; }
-@media (max-width: 760px) {
+/* Hamburger below ~1000px: the six links plus the CTA need about 920px in one row */
+@media (max-width: 999px) {
   .menu-btn {
     display: inline-grid; place-content: center; gap: 5px; width: 44px; height: 44px;
     border: 0; border-radius: 12px; background: var(--mist); cursor: pointer;
@@ -821,7 +822,7 @@ html, body { overflow-x: clip; }
       <a href="#sluzby">Služby</a>
       <a href="#o-nas">O nás</a>
       <a href="#reference">Reference</a>
-      <a href="#cenik">Ceník</a>
+      <a href="#cenik">Cena služeb</a>
       <a href="#navody">Návody</a>
       <a href="#kontakt">Kontakt</a>
       <a class="btn btn--primary" href="#kontakt">Chci audit zdarma</a>
@@ -1504,7 +1505,7 @@ html, body { overflow-x: clip; }
 <div class="view" data-view="cenik" hidden>
   <div class="wrap">
     <header class="page-head">
-      <p class="label">Ceník</p>
+      <p class="label">Cena služeb</p>
       <h1>Kolik stojí marketing, který se dá spočítat</h1>
       <p class="lead">Platíte za práci seniorních specialistů, ne za další lidi mezi vámi a kampaní. Přesnou cenu vám řekneme po auditu zdarma, takže víte předem, do čeho jdete.</p>
     </header>
@@ -2194,7 +2195,7 @@ html, body { overflow-x: clip; }
       <span class="label">Agentura</span>
       <a href="#o-nas">O nás</a>
       <a href="#reference">Reference</a>
-      <a href="#cenik">Ceník</a>
+      <a href="#cenik">Cena služeb</a>
       <a href="#caste-otazky">Časté otázky</a>
       <a href="#navody">Návody</a>
       <a href="#kontakt">Kontakt</a>
