@@ -1,0 +1,89 @@
+  <div class="wrap">
+    <a class="back" href="/navody/">← Všechny návody</a>
+    <article class="guide s-web">
+      <div class="guide-main">
+        <header class="guide-head">
+          <p class="label tag">Měření</p>
+          <h1>Jak nastavit Google Analytics 4 krok za krokem</h1>
+          <p class="lead">Bez měření je marketing jen odhad. Tady je postup, jak GA4 nastavit správně hned napoprvé, včetně věcí, na které se často zapomíná.</p>
+          <p class="guide-meta"><span>7 min čtení</span><span>Pro začátečníky</span><span>Aktualizováno 11/2026</span></p>
+        </header>
+        <ol class="guide-steps">
+          <li>
+            <h2>Založte účet a službu</h2>
+            <p>Přihlaste se na <b>analytics.google.com</b> firemním Google účtem. V části <b>Administrátor</b> klikněte na <b>Vytvořit → Účet</b>. Účet pojmenujte podle firmy, službu (property) podle webu.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Analytics <span>· Administrátor</span></div><div class="ui-body ui-body--side"><div class="ui-side"><i>Domů</i><i>Přehledy</i><i>Prozkoumat</i><i>Inzerce</i><i class="on hl">Administrátor<em class="pin">1</em></i></div><div class="ui-main"><div class="ui-btns"><span class="ui-btn hl">+ Vytvořit<em class="pin">2</em></span></div><div class="ui-menu"><i class="hl">Účet<em class="pin">3</em></i><i>Služba</i></div><div class="ui-muted">Nastavení účtu · Nastavení služby · Shromažďování dat</div></div></div></div><figcaption>Administrátor → Vytvořit → Účet. Službu (web) pak vytvoříte v dalším kroku průvodce.</figcaption></figure>
+            <p>U služby nastavte <b>časové pásmo Česko</b> a <b>měnu CZK</b>. Špatná měna později zkreslí všechny tržby.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Analytics <span>· Vytvořit službu</span></div><div class="ui-main"><div class="ui-h">Podrobnosti o službě</div><div class="ui-field"><span>Název služby</span><b>Web – vasefirma.cz</b></div><div class="ui-grid2"><div class="ui-field"><span>Časové pásmo pro přehledy</span><b class="sel hl">(GMT+01:00) Česko<em class="pin">1</em></b></div><div class="ui-field"><span>Měna</span><b class="sel hl">Česká koruna (CZK)<em class="pin">2</em></b></div></div><div class="ui-btns"><span class="ui-btn">Další</span></div></div></div><figcaption>Časové pásmo Česko a měna CZK. Obojí nastavte hned, změna později nepřepočítá stará data.</figcaption></figure>
+          </li>
+          <li>
+            <h2>Vyplňte údaje o firmě a cíle</h2>
+            <p>Obor, velikost firmy a hlavní cíl (například generování potenciálních zákazníků nebo online prodeje). Podle toho vám GA4 připraví výchozí přehledy.</p>
+          </li>
+          <li>
+            <h2>Vytvořte webový datový stream</h2>
+            <p>Zvolte <b>Web</b>, zadejte adresu webu a název streamu. Dostanete <b>ID měření</b> ve tvaru <code>G-XXXXXXXXXX</code>.</p>
+            <p>Nechte zapnuté <b>Vylepšené měření</b>. Automaticky sbírá zobrazení stránek, scrollování, odchozí kliknutí, vyhledávání na webu a stahování souborů.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Analytics <span>· Datové streamy</span></div><div class="ui-main"><div class="ui-tiles"><div class="ui-tile on hl"><b>Web</b><small>vasefirma.cz</small><em class="pin">1</em></div><div class="ui-tile"><b>Android</b><small>aplikace</small></div><div class="ui-tile"><b>iOS</b><small>aplikace</small></div></div><div class="ui-table"><div class="ui-tr"><span>Podrobnosti streamu</span><span></span></div><div class="ui-tr"><span>ID měření</span><b class="hl">G-AB12CD34EF<em class="pin">2</em></b></div><div class="ui-tr"><span>Vylepšené měření</span><span class="ui-toggle"><i class="on"></i></span></div></div></div></div><figcaption>Webový stream: ID měření (G-…) budete potřebovat při vkládání kódu. Vylepšené měření nechte zapnuté.</figcaption></figure>
+          </li>
+          <li>
+            <h2>Vložte měřicí kód na web</h2>
+            <p>Vyberte jednu cestu, ne víc najednou:</p>
+            <ul>
+              <li><b>Integrace v redakčním systému.</b> Shoptet, Shopify i WordPress (plugin Site Kit) mají pole pro ID měření.</li>
+              <li><b>Google Tag Manager.</b> Přidejte značku <b>Značka Google</b> s vaším ID a spouštěčem na všech stránkách. Doporučujeme, další měření pak přidáte bez zásahu do webu.</li>
+              <li><b>Kód přímo do webu.</b> Zkopírujte kód z pokynů k instalaci a vložte ho do hlavičky <code>&lt;head&gt;</code> každé stránky.</li>
+            </ul>
+          </li>
+          <li>
+            <h2>Vyřešte souhlas s cookies</h2>
+            <p>V EU musí web před měřením získat souhlas návštěvníka. Cookie lišta musí umět předat souhlas Googlu přes <b>Consent Mode v2</b>. Bez toho přicházíte o data a riskujete problém s GDPR.</p>
+          </li>
+          <li>
+            <h2>Ověřte, že data tečou</h2>
+            <p>Otevřete web třeba na mobilu a v GA4 se podívejte do přehledu <b>V reálném čase</b>. Do pár minut byste se tam měli vidět. Podrobnější kontrolu umožní nástroj <b>Tag Assistant</b>.</p>
+          </li>
+          <li>
+            <h2>Nastavte klíčové události</h2>
+            <p>Klíčové události (dříve konverze) jsou akce, které pro vás mají hodnotu: odeslaný formulář, nákup, klik na telefon. V <b>Administrátor → Události</b> je označte jako klíčové. Teprve pak uvidíte, které kanály přinášejí obchod.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Analytics <span>· Administrátor → Události</span></div><div class="ui-main"><div class="ui-table"><div class="ui-tr ui-tr--3"><span>Název události</span><span>Počet</span><span>Klíčová</span></div><div class="ui-tr ui-tr--3"><span>page_view</span><span>12 480</span><span class="ui-star">☆</span></div><div class="ui-tr ui-tr--3"><span>scroll</span><span>6 215</span><span class="ui-star">☆</span></div><div class="ui-tr ui-tr--3 hl"><span>form_submit</span><span>86</span><span class="ui-star on">★</span><em class="pin">1</em></div><div class="ui-tr ui-tr--3"><span>click_telefon</span><span>41</span><span class="ui-star on">★</span></div></div></div></div><figcaption>Hvězdičkou označíte událost jako klíčovou. Čísla jsou jen ukázka.</figcaption></figure>
+          </li>
+          <li>
+            <h2>Prodlužte uchovávání dat a propojte služby</h2>
+            <p>V <b>Administrátor → Uchovávání dat</b> přepněte z výchozích 2 měsíců na <b>14 měsíců</b>. Jinak nebudete moct porovnávat delší období.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Analytics <span>· Uchovávání dat</span></div><div class="ui-main"><div class="ui-field"><span>Uchovávání dat událostí</span><b class="sel hl">14 měsíců<em class="pin">1</em></b></div><div class="ui-muted">Výchozí hodnota jsou 2 měsíce.</div><div class="ui-btns"><span class="ui-btn">Uložit</span></div></div></div><figcaption>Uchovávání dat přepněte na 14 měsíců a uložte.</figcaption></figure>
+            <p>Nakonec propojte GA4 s <b>Google Ads</b> a <b>Search Console</b> v části <b>Propojení služeb</b>.</p>
+          </li>
+        </ol>
+        <aside class="tip">
+          <b>Tip od nás</b>
+          <p>V <b>Datové streamy → Nastavení značky → Definovat interní provoz</b> vyřaďte IP adresu své kanceláře. Vaše vlastní návštěvy jinak zkreslují čísla, hlavně u menších webů.</p>
+        </aside>
+        <section class="mistakes">
+          <h2>Nejčastější chyby</h2>
+          <ul>
+            <li>Měřicí kód je na webu dvakrát (třeba v pluginu i v Tag Manageru), takže se všechno počítá dvojmo.</li>
+            <li>Chybí klíčové události. GA4 pak ukazuje návštěvnost, ale ne obchod.</li>
+            <li>Cookie lišta nepředává souhlas a data ve velkém chybí.</li>
+            <li>Uchovávání dat zůstalo na 2 měsících.</li>
+          </ul>
+        </section>
+        <p class="guide-note">Google rozhraní občas upravuje, obrázky jsou proto ilustrační a názvy tlačítek se můžou mírně lišit.</p>
+      </div>
+      <aside class="guide-side">
+        <div class="need">
+          <h2>Co budete potřebovat</h2>
+          <ul>
+            <li>Firemní Google účet</li>
+            <li>Přístup k úpravám webu nebo k Google Tag Manageru</li>
+            <li>Cookie lištu s podporou Consent Mode v2</li>
+          </ul>
+        </div>
+        <div class="guide-cta">
+          <h2>Nechcete to řešit sami?</h2>
+          <p>GA4 vám nastavíme včetně klíčových událostí a souhlasu s cookies. Začneme auditem zdarma.</p>
+          <a class="btn btn--primary" href="/kontakt/">Chci audit zdarma</a>
+        </div>
+      </aside>
+    </article>
+  </div>

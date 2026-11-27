@@ -1,0 +1,82 @@
+  <div class="wrap">
+    <a class="back" href="/navody/">← Všechny návody</a>
+    <article class="guide s-ads">
+      <div class="guide-main">
+        <header class="guide-head">
+          <p class="label tag">Měření</p>
+          <h1>Jak měřit konverze z Google Ads</h1>
+          <p class="lead">Google Ads bez měření konverzí optimalizuje na kliky. S měřením na poptávky a objednávky. Ukážeme vám dvě cesty, jak ho nastavit.</p>
+          <p class="guide-meta"><span>6 min čtení</span><span>Mírně pokročilí</span><span>Aktualizováno 11/2026</span></p>
+        </header>
+        <ol class="guide-steps">
+          <li>
+            <h2>Rozhodněte, co je pro vás konverze</h2>
+            <p>Odeslaný formulář, nákup, klik na telefon, rezervace. Vyberte 1–2 hlavní akce, podle kterých má Google kampaně řídit. Ostatní můžete sledovat jako doplňkové.</p>
+          </li>
+          <li>
+            <h2>Cesta A: import z Google Analytics 4</h2>
+            <p>Nejrychlejší, pokud už máte funkční GA4 s nastavenými klíčovými událostmi.</p>
+            <ul>
+              <li>V GA4 propojte službu s Google Ads (<b>Administrátor → Propojení služeb → Google Ads</b>).</li>
+              <li>V Google Ads otevřete <b>Cíle → Konverze → Souhrn</b> a klikněte na <b>Nová konverzní akce</b>.</li>
+              <li>Zvolte <b>Import → Google Analytics 4</b> a vyberte klíčové události.</li>
+            </ul>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Google Ads <span>· Cíle</span></div><div class="ui-body ui-body--side"><div class="ui-side"><i>Kampaně</i><i class="on hl">Cíle<em class="pin">1</em></i><i class="sub">Konverze</i><i class="sub on">Souhrn</i><i>Nástroje</i></div><div class="ui-main"><div class="ui-h">Souhrn konverzí</div><div class="ui-btns"><span class="ui-btn hl">+ Nová konverzní akce<em class="pin">2</em></span></div><div class="ui-table"><div class="ui-tr"><span>Konverzní akce</span><span>Stav</span></div><div class="ui-tr"><span>Odeslání formuláře</span><span class="ui-ok">Aktivní</span></div></div></div></div></div><figcaption>Cíle → Konverze → Souhrn → Nová konverzní akce. Odtud vedou obě cesty.</figcaption></figure>
+          </li>
+          <li>
+            <h2>Cesta B: značka Google Ads přímo na webu</h2>
+            <p>Přesnější a rychlejší pro optimalizaci kampaní.</p>
+            <ul>
+              <li>V <b>Cíle → Konverze → Souhrn</b> zvolte <b>Nová konverzní akce → Web</b> a zadejte doménu.</li>
+              <li>Vyberte kategorii, třeba <b>Nákup</b> nebo <b>Odeslání formuláře pro potenciální zákazníky</b>.</li>
+              <li>Získáte <b>ID konverze</b> a <b>štítek</b>. Nejlépe je vložte přes Google Tag Manager jako značku <b>Měření konverzí Google Ads</b>, spuštěnou na děkovací stránce nebo po odeslání formuláře.</li>
+            </ul>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Google Ads <span>· Nová konverzní akce</span></div><div class="ui-main"><div class="ui-h">Co chcete měřit?</div><div class="ui-tiles"><div class="ui-tile on hl"><b>Web</b><small>cesta B</small><em class="pin">B</em></div><div class="ui-tile"><b>Aplikace</b></div><div class="ui-tile"><b>Telefonní hovory</b></div><div class="ui-tile hl"><b>Import</b><small>cesta A: Google Analytics 4</small><em class="pin">A</em></div></div></div></div><figcaption>Import z GA4 (cesta A), nebo měření přímo na webu (cesta B).</figcaption></figure>
+          </li>
+          <li>
+            <h2>Nastavte hodnotu a počítání</h2>
+            <p>U nákupu předávejte skutečnou hodnotu objednávky. U poptávek nastavte orientační hodnotu leadu. Počítání nastavte na <b>Každá</b> u nákupů a <b>Jedna</b> u poptávek, aby se jeden člověk nepočítal třikrát.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Google Ads <span>· Nastavení konverzní akce</span></div><div class="ui-main"><div class="ui-field"><span>Kategorie</span><b class="sel">Odeslání formuláře pro potenciální zákazníky</b></div><div class="ui-field"><span>Hodnota</span><b class="hl">1 000 Kč za konverzi<em class="pin">1</em></b></div><div class="ui-field"><span>Počítání</span></div><div class="ui-radio hl"><i class="on"></i>Jedna – vhodné pro poptávky<em class="pin">2</em></div><div class="ui-radio"><i></i>Každá – vhodné pro nákupy</div></div></div><figcaption>Hodnota konverze a počítání. U poptávek nastavte Jedna. Hodnota 1 000 Kč je jen příklad.</figcaption></figure>
+          </li>
+          <li>
+            <h2>Zapněte rozšířené konverze a Consent Mode</h2>
+            <p><b>Rozšířené konverze</b> posílají Googlu zašifrovaný e-mail z formuláře nebo objednávky a měření je díky nim přesnější. Cookie lišta zároveň musí předávat souhlas přes <b>Consent Mode v2</b>, jinak v EU přicházíte o velkou část dat.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Google Ads <span>· Nastavení konverzí</span></div><div class="ui-main"><div class="ui-toggle hl">Rozšířené konverze pro web<i class="on"></i><em class="pin">1</em></div><div class="ui-muted">Zašifrovaná data z formuláře (např. e-mail) zpřesní měření.</div><div class="ui-table"><div class="ui-tr"><span>Souhlas (Consent Mode v2)</span><span></span></div><div class="ui-tr"><span>ad_storage, analytics_storage</span><span class="ui-ok">✓</span></div><div class="ui-tr"><span>ad_user_data, ad_personalization</span><span class="ui-ok">✓</span></div></div></div></div><figcaption>Rozšířené konverze zapnuté a cookie lišta, která Googlu předává všechny čtyři typy souhlasu.</figcaption></figure>
+          </li>
+          <li>
+            <h2>Ověřte, že měření funguje</h2>
+            <p>Udělejte testovací konverzi a zkontrolujte ji v <b>Tag Assistantu</b>. V přehledu konverzí se stav změní na aktivní. První konverze se v Google Ads můžou objevit až s několikahodinovým zpožděním.</p>
+          </li>
+        </ol>
+        <aside class="tip">
+          <b>Tip od nás</b>
+          <p>Jako primární (podle nich Google optimalizuje) nechte jen konverze, které opravdu znamenají obchod. Když bude primární i „zobrazení stránky kontakt“, kampaně začnou honit levné a bezcenné akce.</p>
+        </aside>
+        <section class="mistakes">
+          <h2>Nejčastější chyby</h2>
+          <ul>
+            <li>Stejná konverze měřená dvakrát (import z GA4 i značka Google Ads) a obě jako primární.</li>
+            <li>Počítání „Každá“ u poptávkových formulářů.</li>
+            <li>Chybějící hodnota konverze, takže nevidíte návratnost.</li>
+            <li>Spouštěč na všech stránkách místo na děkovací stránce.</li>
+          </ul>
+        </section>
+        <p class="guide-note">Google rozhraní občas upravuje, obrázky jsou proto ilustrační a názvy tlačítek se můžou mírně lišit.</p>
+      </div>
+      <aside class="guide-side">
+        <div class="need">
+          <h2>Co budete potřebovat</h2>
+          <ul>
+            <li>Účet Google Ads</li>
+            <li>Funkční GA4, nebo přístup do Google Tag Manageru</li>
+            <li>Cookie lištu s podporou Consent Mode v2</li>
+          </ul>
+        </div>
+        <div class="guide-cta">
+          <h2>Nechcete to řešit sami?</h2>
+          <p>Měření konverzí vám nastavíme a zkontrolujeme, že čísla v Google Ads sedí. Začneme auditem zdarma.</p>
+          <a class="btn btn--primary" href="/kontakt/">Chci audit zdarma</a>
+        </div>
+      </aside>
+    </article>
+  </div>

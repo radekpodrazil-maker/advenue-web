@@ -1,0 +1,54 @@
+# Permanent (301) redirects from the old WordPress site at advenue.cz.
+# Cloudflare Pages applies redirects BEFORE serving files, so never list a URL
+# that exists on the new site. Static rules first, splat rules after.
+# Not redirected on purpose (they return the 404 page): /wp-admin/, /wp-login.php,
+# /xmlrpc.php, /wp-json/, /wp-content/ files and the theme's demo posts from 2016.
+
+/voice-bot                          /weby-e-shopy-vyvoj-aplikaci/        301
+/voice-bot/                         /weby-e-shopy-vyvoj-aplikaci/        301
+/automatizace                       /weby-e-shopy-vyvoj-aplikaci/        301
+/automatizace/                      /weby-e-shopy-vyvoj-aplikaci/        301
+/kandidatomat                       /reference/                          301
+/kandidatomat/                      /reference/                          301
+/marketing-consulting-pro-maklere   /sprava-reklam-v-online-prostredi/   301
+/marketing-consulting-pro-maklere/  /sprava-reklam-v-online-prostredi/   301
+/2023/01/15/djradeksiml-cz          /reference/                          301
+/2023/01/15/djradeksiml-cz/         /reference/                          301
+/2023/01/15/nexus-auto-cz           /reference/                          301
+/2023/01/15/nexus-auto-cz/          /reference/                          301
+/2023/01/15/pecemebezlepku-cz       /reference/                          301
+/2023/01/15/pecemebezlepku-cz/      /reference/                          301
+/zasady-cookies-eu                  /ochrana-osobnich-udaju/             301
+/zasady-cookies-eu/                 /ochrana-osobnich-udaju/             301
+/sluzby                             /nase-sluzby/                        301
+/sluzby/                            /nase-sluzby/                        301
+/blog                               /navody/                             301
+/blog/                              /navody/                             301
+/home                               /                                    301
+/home/                              /                                    301
+/home-2                             /                                    301
+/home-2/                            /                                    301
+/feed                               /                                    301
+/feed/                              /                                    301
+/comments/feed                      /                                    301
+/comments/feed/                     /                                    301
+/author                             /o-nas/                              301
+/author/                            /o-nas/                              301
+/category                           /                                    301
+/category/                          /                                    301
+/tag                                /                                    301
+/tag/                               /                                    301
+/2023                               /reference/                          301
+/2023/                              /reference/                          301
+
+/index.php                             /                                    301
+
+# Whole sections of the old site (dynamic rules)
+/author/*                           /o-nas/                              301
+/category/*                         /                                    301
+/tag/*                              /                                    301
+/2023/*                             /reference/                          301
+/2016/*                             /                                    301
+/feed/*                             /                                    301
+/*/feed/                            /                                    301
+/index.php/*                        /                                    301

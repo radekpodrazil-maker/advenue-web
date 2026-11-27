@@ -1,0 +1,92 @@
+  <div class="wrap">
+    <header class="page-head">
+      <p class="label">Kontakt</p>
+      <h1>Pojďme se domluvit</h1>
+      <p class="lead">Napište nám, s čím potřebujete pomoct. Ozveme se, navrhneme termín krátkého online hovoru a úvodní audit uděláme zdarma.</p>
+    </header>
+
+    <div class="contact-grid">
+      <form class="form" id="form" novalidate>
+        <h2>Poptávka</h2>
+        <div class="row2">
+          <div class="field">
+            <label for="f-name">Jméno a příjmení *</label>
+            <input id="f-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-company">Firma</label>
+            <input id="f-company" name="company" autocomplete="organization">
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="f-email">E-mail *</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="f-phone">Telefon</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+        </div>
+        <fieldset class="field">
+          <legend>S čím potřebujete pomoct?</legend>
+          <div class="needs">
+            <input type="checkbox" id="n-ads" name="need" value="Výkonnostní kampaně"><label for="n-ads">Kampaně</label>
+            <input type="checkbox" id="n-mail" name="need" value="E-mail marketing"><label for="n-mail">E-mail marketing</label>
+            <input type="checkbox" id="n-web" name="need" value="Web nebo e-shop"><label for="n-web">Web nebo e-shop</label>
+            <input type="checkbox" id="n-app" name="need" value="Aplikace"><label for="n-app">Aplikace</label>
+            <input type="checkbox" id="n-hr" name="need" value="Kandidátomat (nábor)"><label for="n-hr">Nábor</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="f-msg">Zpráva</label>
+          <textarea id="f-msg" name="message" placeholder="Pár vět o vaší firmě a o tom, co chcete zlepšit."></textarea>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="f-web">Nevyplňujte</label>
+          <input id="f-web" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <p class="form-note" id="form-error" role="alert"></p>
+        <button class="btn btn--primary" type="submit" id="form-submit">Odeslat poptávku
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="form-note">Vaše údaje použijeme jen k odpovědi na poptávku. Více v <a href="/ochrana-osobnich-udaju/">zásadách ochrany osobních údajů</a>.</p>
+        <div class="sent" id="sent-ok" hidden>
+          <h3>Děkujeme, poptávka dorazila</h3>
+          <p>Ozveme se vám co nejdřív. Pokud spěcháte, zavolejte na +420 603 765 797.</p>
+        </div>
+        <div class="sent" id="sent" hidden>
+          <h3>Zpráva je připravená</h3>
+          <p>Dokončete odeslání ve svém e-mailu. Pokud se e-mail neotevře, zkopírujte text a pošlete ho na info@advenue.cz.</p>
+          <div class="actions">
+            <a class="btn btn--primary" id="sent-mail" href="mailto:info@advenue.cz">Otevřít e-mail</a>
+            <button class="btn btn--ghost" type="button" data-copy="sent-text">Kopírovat text</button>
+          </div>
+          <output id="sent-text" hidden></output>
+        </div>
+      </form>
+
+      <aside class="info" aria-label="Kontaktní údaje">
+        <div class="info-card">
+          <span class="label">E-mail</span>
+          <div class="row"><span class="value" id="c-email">info@advenue.cz</span><button class="copy" type="button" data-copy="c-email">Kopírovat</button></div>
+        </div>
+        <div class="info-card">
+          <span class="label">Telefon</span>
+          <div class="row"><span class="value" id="c-phone">+420 603 765 797</span><button class="copy" type="button" data-copy="c-phone">Kopírovat</button></div>
+        </div>
+        <div class="info-card">
+          <span class="label">Sídlo a fakturační adresa</span>
+          <address><strong>Advenue digital s.r.o.</strong><br>Jičínská 226/17<br>130 00 Praha 3 – Žižkov<br>IČO: 14173921</address>
+          <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Ji%C4%8D%C3%ADnsk%C3%A1%20226%2F17%2C%20130%2000%20Praha%203" target="_blank" rel="noopener">Zobrazit na mapě ↗</a></div>
+        </div>
+        <div class="info-card">
+          <span class="label">Sledujte nás</span>
+          <div class="links">
+            <a href="https://www.linkedin.com/company/advenue/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://www.facebook.com/advenuedigi" target="_blank" rel="noopener">Facebook ↗</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
