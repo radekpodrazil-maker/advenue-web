@@ -98,12 +98,24 @@ Admin WordPressu (`/wp-admin/`, `/wp-login.php`, `/xmlrpc.php`), soubory `/wp-co
 
 ## Testovací náhled na GitHub Pages
 
-Starý náhled servíroval `index.html` přímo z větve `main`. Nový web se musí nejdřív sestavit, takže náhled
-potřebuje GitHub Actions:
+Náhled běží na https://radekpodrazil-maker.github.io/advenue-web/, je vždy `noindex` a pracuje pod
+cestou `/advenue-web/`. GitHub Pages ho servíruje z větve **`gh-pages`** (Settings → Pages → Source:
+*Deploy from a branch*, `gh-pages`, `/ (root)`). V té větvi je jen hotový build, žádné zdrojáky.
 
-1. Soubor `deploy/github-pages-preview.yml` přesuňte do `.github/workflows/`. Na GitHubu to jde přes
-   *Add file → Create new file*, cesta `.github/workflows/preview.yml`. Claude to sám nahrát nemůže,
-   jeho přístup ke GitHubu nemá oprávnění `workflow`.
-2. Settings → Pages → Source: **GitHub Actions**.
+**Náhled se sám neaktualizuje.** Po změně v `main` je potřeba:
 
-Náhled je vždy `noindex` a běží pod `/advenue-web/`.
+1. Sestavit náhled do čisté složky a zkontrolovat ho:
+   ```
+   SITE_ENV=preview BASE_PATH=/advenue-web OUT_DIR=/tmp/nahled python3 build.py
+   python3 check.py /tmp/nahled preview /advenue-web
+   ```
+2. Do složky přidat prázdný soubor `.nojekyll`, aby GitHub soubory neupravoval přes Jekyll.
+3. Obsah složky nahrát jako nový commit do větve `gh-pages`, která nahradí předchozí obsah.
+
+Stačí Claudovi napsat „aktualizuj náhled“.
+
+Druhá možnost je workflow `deploy/github-pages-preview.yml`, který náhled sestaví sám po každém pushi
+do `main`. Je potřeba ho přesunout do `.github/workflows/` (na GitHubu přes *Add file → Create new file*)
+a v Settings → Pages přepnout Source na **GitHub Actions**. Claude ho sám nahrát nemůže, jeho přístup
+ke GitHubu nemá oprávnění `workflow`. Po přechodu na Cloudflare Pages náhled na GitHubu není potřeba,
+Cloudflare vytváří náhledy větví sám.
