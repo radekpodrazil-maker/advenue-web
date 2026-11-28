@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jak měřit konverze z Google Ads | Advenue digital</title>
+<meta name="description" content="Google Ads bez měření konverzí optimalizuje na kliky. S měřením na poptávky a objednávky. Dvě cesty, jak ho nastavit.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://advenue.cz/navody/mereni-konverzi-google-ads/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Advenue digital">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:title" content="Jak měřit konverze z Google Ads | Advenue digital">
+<meta property="og:description" content="Google Ads bez měření konverzí optimalizuje na kliky. S měřením na poptávky a objednávky. Dvě cesty, jak ho nastavit.">
+<meta property="og:url" content="https://advenue.cz/navody/mereni-konverzi-google-ads/">
+<meta property="og:image" content="https://advenue.cz/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Advenue digital – marketing, který se dá spočítat">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/advenue-web/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;700&family=Roboto:wght@400;500&family=Roboto+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="/advenue-web/assets/site.css?v=705986d411">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Úvod",
+     "item": "https://advenue.cz/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Návody",
+     "item": "https://advenue.cz/navody/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Jak měřit konverze z Google Ads",
+     "item": "https://advenue.cz/navody/mereni-konverzi-google-ads/"
+    }
+   ]
+  },
+  {
+   "@type": "Article",
+   "headline": "Jak měřit konverze z Google Ads",
+   "description": "Google Ads bez měření konverzí optimalizuje na kliky. S měřením na poptávky a objednávky. Dvě cesty, jak ho nastavit.",
+   "image": "https://advenue.cz/assets/og-image.jpg",
+   "datePublished": "2026-11-01",
+   "dateModified": "2026-11-01",
+   "inLanguage": "cs",
+   "mainEntityOfPage": "https://advenue.cz/navody/mereni-konverzi-google-ads/",
+   "author": {
+    "@type": "Organization",
+    "name": "Advenue digital",
+    "url": "https://advenue.cz/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://advenue.cz/#organizace",
+    "name": "Advenue digital s.r.o.",
+    "url": "https://advenue.cz/"
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<header class="topbar" id="topbar">
+<div class="wrap wrap--wide">
+  <nav class="nav" aria-label="Hlavní navigace">
+    <a class="brand" href="/advenue-web/" aria-label="Advenue digital, úvod">
+      <span>Advenue<small>digital</small></span>
+    </a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Otevřít menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/advenue-web/nase-sluzby/">Služby</a>
+      <a href="/advenue-web/o-nas/">O nás</a>
+      <a href="/advenue-web/reference/">Reference</a>
+      <a href="/advenue-web/cenik/">Ceník služeb</a>
+      <a href="/advenue-web/navody/" aria-current="page">Návody</a>
+      <a href="/advenue-web/kontakt/">Kontakt</a>
+      <a class="btn btn--primary" href="/advenue-web/kontakt/">Chci audit zdarma</a>
+    </div>
+  </nav>
+</div>
+</header>
+
+<main>
+  <div class="wrap">
+    <a class="back" href="/advenue-web/navody/">← Všechny návody</a>
+    <article class="guide s-ads">
+      <div class="guide-main">
+        <header class="guide-head">
+          <p class="label tag">Měření</p>
+          <h1>Jak měřit konverze z Google Ads</h1>
+          <p class="lead">Google Ads bez měření konverzí optimalizuje na kliky. S měřením na poptávky a objednávky. Ukážeme vám dvě cesty, jak ho nastavit.</p>
+          <p class="guide-meta"><span>6 min čtení</span><span>Mírně pokročilí</span><span>Aktualizováno 11/2026</span></p>
+        </header>
+        <ol class="guide-steps">
+          <li>
+            <h2>Rozhodněte, co je pro vás konverze</h2>
+            <p>Odeslaný formulář, nákup, klik na telefon, rezervace. Vyberte 1–2 hlavní akce, podle kterých má Google kampaně řídit. Ostatní můžete sledovat jako doplňkové.</p>
+          </li>
+          <li>
+            <h2>Cesta A: import z Google Analytics 4</h2>
+            <p>Nejrychlejší, pokud už máte funkční GA4 s nastavenými klíčovými událostmi.</p>
+            <ul>
+              <li>V GA4 propojte službu s Google Ads (<b>Administrátor → Propojení služeb → Google Ads</b>).</li>
+              <li>V Google Ads otevřete <b>Cíle → Konverze → Souhrn</b> a klikněte na <b>Nová konverzní akce</b>.</li>
+              <li>Zvolte <b>Import → Google Analytics 4</b> a vyberte klíčové události.</li>
+            </ul>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Google Ads <span>· Cíle</span></div><div class="ui-body ui-body--side"><div class="ui-side"><i>Kampaně</i><i class="on hl">Cíle<em class="pin">1</em></i><i class="sub">Konverze</i><i class="sub on">Souhrn</i><i>Nástroje</i></div><div class="ui-main"><div class="ui-h">Souhrn konverzí</div><div class="ui-btns"><span class="ui-btn hl">+ Nová konverzní akce<em class="pin">2</em></span></div><div class="ui-table"><div class="ui-tr"><span>Konverzní akce</span><span>Stav</span></div><div class="ui-tr"><span>Odeslání formuláře</span><span class="ui-ok">Aktivní</span></div></div></div></div></div><figcaption>Cíle → Konverze → Souhrn → Nová konverzní akce. Odtud vedou obě cesty.</figcaption></figure>
+          </li>
+          <li>
+            <h2>Cesta B: značka Google Ads přímo na webu</h2>
+            <p>Přesnější a rychlejší pro optimalizaci kampaní.</p>
+            <ul>
+              <li>V <b>Cíle → Konverze → Souhrn</b> zvolte <b>Nová konverzní akce → Web</b> a zadejte doménu.</li>
+              <li>Vyberte kategorii, třeba <b>Nákup</b> nebo <b>Odeslání formuláře pro potenciální zákazníky</b>.</li>
+              <li>Získáte <b>ID konverze</b> a <b>štítek</b>. Nejlépe je vložte přes Google Tag Manager jako značku <b>Měření konverzí Google Ads</b>, spuštěnou na děkovací stránce nebo po odeslání formuláře.</li>
+            </ul>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Google Ads <span>· Nová konverzní akce</span></div><div class="ui-main"><div class="ui-h">Co chcete měřit?</div><div class="ui-tiles"><div class="ui-tile on hl"><b>Web</b><small>cesta B</small><em class="pin">B</em></div><div class="ui-tile"><b>Aplikace</b></div><div class="ui-tile"><b>Telefonní hovory</b></div><div class="ui-tile hl"><b>Import</b><small>cesta A: Google Analytics 4</small><em class="pin">A</em></div></div></div></div><figcaption>Import z GA4 (cesta A), nebo měření přímo na webu (cesta B).</figcaption></figure>
+          </li>
+          <li>
+            <h2>Nastavte hodnotu a počítání</h2>
+            <p>U nákupu předávejte skutečnou hodnotu objednávky. U poptávek nastavte orientační hodnotu leadu. Počítání nastavte na <b>Každá</b> u nákupů a <b>Jedna</b> u poptávek, aby se jeden člověk nepočítal třikrát.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Google Ads <span>· Nastavení konverzní akce</span></div><div class="ui-main"><div class="ui-field"><span>Kategorie</span><b class="sel">Odeslání formuláře pro potenciální zákazníky</b></div><div class="ui-field"><span>Hodnota</span><b class="hl">1 000 Kč za konverzi<em class="pin">1</em></b></div><div class="ui-field"><span>Počítání</span></div><div class="ui-radio hl"><i class="on"></i>Jedna – vhodné pro poptávky<em class="pin">2</em></div><div class="ui-radio"><i></i>Každá – vhodné pro nákupy</div></div></div><figcaption>Hodnota konverze a počítání. U poptávek nastavte Jedna. Hodnota 1 000 Kč je jen příklad.</figcaption></figure>
+          </li>
+          <li>
+            <h2>Zapněte rozšířené konverze a Consent Mode</h2>
+            <p><b>Rozšířené konverze</b> posílají Googlu zašifrovaný e-mail z formuláře nebo objednávky a měření je díky nim přesnější. Cookie lišta zároveň musí předávat souhlas přes <b>Consent Mode v2</b>, jinak v EU přicházíte o velkou část dat.</p>
+            <figure class="ui-fig"><div class="ui" aria-hidden="true"><div class="ui-bar">Google Ads <span>· Nastavení konverzí</span></div><div class="ui-main"><div class="ui-toggle hl">Rozšířené konverze pro web<i class="on"></i><em class="pin">1</em></div><div class="ui-muted">Zašifrovaná data z formuláře (např. e-mail) zpřesní měření.</div><div class="ui-table"><div class="ui-tr"><span>Souhlas (Consent Mode v2)</span><span></span></div><div class="ui-tr"><span>ad_storage, analytics_storage</span><span class="ui-ok">✓</span></div><div class="ui-tr"><span>ad_user_data, ad_personalization</span><span class="ui-ok">✓</span></div></div></div></div><figcaption>Rozšířené konverze zapnuté a cookie lišta, která Googlu předává všechny čtyři typy souhlasu.</figcaption></figure>
+          </li>
+          <li>
+            <h2>Ověřte, že měření funguje</h2>
+            <p>Udělejte testovací konverzi a zkontrolujte ji v <b>Tag Assistantu</b>. V přehledu konverzí se stav změní na aktivní. První konverze se v Google Ads můžou objevit až s několikahodinovým zpožděním.</p>
+          </li>
+        </ol>
+        <aside class="tip">
+          <b>Tip od nás</b>
+          <p>Jako primární (podle nich Google optimalizuje) nechte jen konverze, které opravdu znamenají obchod. Když bude primární i „zobrazení stránky kontakt“, kampaně začnou honit levné a bezcenné akce.</p>
+        </aside>
+        <section class="mistakes">
+          <h2>Nejčastější chyby</h2>
+          <ul>
+            <li>Stejná konverze měřená dvakrát (import z GA4 i značka Google Ads) a obě jako primární.</li>
+            <li>Počítání „Každá“ u poptávkových formulářů.</li>
+            <li>Chybějící hodnota konverze, takže nevidíte návratnost.</li>
+            <li>Spouštěč na všech stránkách místo na děkovací stránce.</li>
+          </ul>
+        </section>
+        <p class="guide-note">Google rozhraní občas upravuje, obrázky jsou proto ilustrační a názvy tlačítek se můžou mírně lišit.</p>
+      </div>
+      <aside class="guide-side">
+        <div class="need">
+          <h2>Co budete potřebovat</h2>
+          <ul>
+            <li>Účet Google Ads</li>
+            <li>Funkční GA4, nebo přístup do Google Tag Manageru</li>
+            <li>Cookie lištu s podporou Consent Mode v2</li>
+          </ul>
+        </div>
+        <div class="guide-cta">
+          <h2>Nechcete to řešit sami?</h2>
+          <p>Měření konverzí vám nastavíme a zkontrolujeme, že čísla v Google Ads sedí. Začneme auditem zdarma.</p>
+          <a class="btn btn--primary" href="/advenue-web/kontakt/">Chci audit zdarma</a>
+        </div>
+      </aside>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <a class="brand" href="/advenue-web/"><span>Advenue<small>digital</small></span></a>
+      <p>Výkonnostní marketing, e-mail marketing, weby a aplikace.</p>
+    </div>
+    <div>
+      <span class="label">Služby</span>
+      <a href="/advenue-web/sprava-reklam-v-online-prostredi/">Výkonnostní marketing</a>
+      <a href="/advenue-web/e-mail-marketing/">E-mail marketing</a>
+      <a href="/advenue-web/weby-e-shopy-vyvoj-aplikaci/">Weby a aplikace</a>
+    </div>
+    <div>
+      <span class="label">Agentura</span>
+      <a href="/advenue-web/o-nas/">O nás</a>
+      <a href="/advenue-web/reference/">Reference</a>
+      <a href="/advenue-web/cenik/">Ceník služeb</a>
+      <a href="/advenue-web/caste-otazky/">Časté otázky</a>
+      <a href="/advenue-web/navody/">Návody</a>
+      <a href="/advenue-web/kontakt/">Kontakt</a>
+      <a href="https://www.linkedin.com/company/advenue/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.facebook.com/advenuedigi" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div>
+      <span class="label">Kontakt</span>
+      <address>Advenue digital s.r.o.<br>Jičínská 226/17, 130 00 Praha 3<br>IČO: 14173921</address>
+      <a href="/advenue-web/kontakt/">info@advenue.cz</a>
+      <a href="/advenue-web/kontakt/">+420 603 765 797</a>
+    </div>
+  </div>
+  <div class="wrap foot">
+    <span>© 2026 Advenue digital s.r.o.</span>
+    <span class="foot-links"><a href="/advenue-web/ochrana-osobnich-udaju/">Ochrana osobních údajů</a><a href="https://advenue.cz">advenue.cz</a></span>
+  </div>
+</footer>
+
+<script src="/advenue-web/assets/site.js?v=4973ff7169" defer></script>
+</body>
+</html>

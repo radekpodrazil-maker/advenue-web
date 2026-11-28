@@ -1,0 +1,3 @@
+# Preview build: pages carry noindex. No sitemap on purpose.
+User-agent: *
+Allow: /
