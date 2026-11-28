@@ -52,33 +52,33 @@ GUIDES = ("Návody", "/navody/")
 # which main-menu item is active, breadcrumb trail and structured-data kind.
 PAGES = [
     dict(src="index", path="/", kind="home", nav=None,
-         title="Výkonnostní marketing, e-maily a weby | Advenue digital",
-         description="Spravujeme výkonnostní kampaně, posíláme e-maily, které lidé otevírají, "
-                     "a stavíme weby a aplikace, které prodávají. Úvodní audit zdarma."),
+         title="Generování leadů a e-commerce marketing | Advenue digital",
+         description="Agentura specialistů na generování leadů a e-commerce. Kampaně, e-maily "
+                     "a weby, které firmám přinášejí poptávky a e-shopům objednávky. Audit zdarma."),
     dict(src="nase-sluzby", path="/nase-sluzby/", kind="page", nav="sluzby", crumbs=[HOME],
          title="Služby: kampaně, e-maily, weby a aplikace | Advenue digital",
-         description="Kampaně, e-maily, weby a aplikace. Každou službu můžete využít samostatně. "
-                     "Nejvíc ale přinesou, když na sebe navazují."),
+         description="Generování leadů a výkon e-shopů: kampaně, e-maily, weby a aplikace. Každou "
+                     "službu můžete využít samostatně, nejvíc přinesou dohromady."),
     dict(src="sprava-reklam-v-online-prostredi", path="/sprava-reklam-v-online-prostredi/",
          kind="service", nav="sluzby", crumbs=[HOME, SERVICES],
          service="Správa reklam a online kampaní", min_price=15000,
          title="Správa reklam a online kampaní | Advenue digital",
          description="Správa digitálních kampaní v Google Ads, Skliku, na Facebooku, Instagramu "
-                     "a LinkedInu. Řídíme je podle objednávek a poptávek. Od 15 000 Kč měsíčně."),
+                     "a LinkedInu. Řídíme je podle ceny za lead a tržeb e-shopu. Od 15 000 Kč měsíčně."),
     dict(src="e-mail-marketing", path="/e-mail-marketing/", kind="service", nav="sluzby",
          crumbs=[HOME, SERVICES], service="E-mail marketing",
          title="E-mail marketing a automatizace | Advenue digital",
-         description="Navrhneme, napíšeme a nastavíme e-maily, které oslovují zákazníky ve správnou "
-                     "chvíli. Automatizace, newslettery, segmentace a A/B testy."),
+         description="E-mailové automatizace, které vracejí zákazníky e-shopů k nákupu a nové leady "
+                     "vedou k poptávce. Newslettery, segmentace a A/B testy."),
     dict(src="weby-e-shopy-vyvoj-aplikaci", path="/weby-e-shopy-vyvoj-aplikaci/", kind="service",
          nav="sluzby", crumbs=[HOME, SERVICES], service="Weby, e-shopy a vývoj aplikací",
          title="Weby, e-shopy a vývoj aplikací na míru | Advenue digital",
-         description="Weby, e-shopy a aplikace na míru, které fungují na mobilu a od prvního dne "
-                     "měří výsledky. Aplikace od 25 000 Kč, hotové do 14 dnů."),
+         description="E-shopy, landing pages a aplikace na míru, které z návštěvníků dělají objednávky "
+                     "a poptávky. Aplikace od 25 000 Kč, hotové do 14 dnů."),
     dict(src="o-nas", path="/o-nas/", kind="page", nav="o-nas", crumbs=[HOME],
          title="O nás | Advenue digital",
-         description="O vaše kampaně se starají seniorní specialisté a komunikujete přímo s nimi, "
-                     "bez account managera uprostřed. Digitální agentura z Prahy."),
+         description="Pražská agentura specialistů na generování leadů a e-commerce. Komunikujete "
+                     "přímo se seniorním specialistou, bez account managera uprostřed."),
     dict(src="reference", path="/reference/", kind="page", nav="reference", crumbs=[HOME],
          title="Reference | Advenue digital",
          description="Výběr z našich projektů: weby a kampaně pro absl.cz, SCALL, AutoTarga, "
@@ -247,7 +247,8 @@ def organization():
         "@id": ORG_ID,
         "name": "Advenue digital s.r.o.",
         "alternateName": SITE_NAME,
-        "description": "Výkonnostní marketing, e-mail marketing, weby a aplikace.",
+        "description": "Agentura specialistů na generování leadů a e-commerce: výkonnostní kampaně, "
+                       "e-mail marketing, weby a aplikace.",
         "url": DOMAIN + "/",
         "image": OG_IMAGE,
         "email": "info@advenue.cz",
